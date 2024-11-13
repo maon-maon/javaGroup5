@@ -70,6 +70,7 @@
   </style>
 </head>
 <body>
+	<jsp:include page="/include/header.jsp"/>
   <div class="main-container">
     <div class="logo">로고위치</div>
     <div class="login-container">
@@ -86,7 +87,6 @@
     </div>
     <div class="register-button">회원가입버튼</div>
   </div>
-<p><br/></p>
   <jsp:include page="/include/footer.jsp"/>
 </body>
 </html>

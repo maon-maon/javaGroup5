@@ -8,7 +8,7 @@
   <title>회원가입</title>
   <jsp:include page="/include/bs4.jsp"/>
   <style>
-  <jsp:include page="/include/sidebarStyle.jsp"/>
+  	<jsp:include page="/include/sidebarStyle.jsp"/>
   	
 	</style>
 </head>

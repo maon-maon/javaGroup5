@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import about.join.JoinOkCommand;
+import about.login.LoginOkCommand;
 
 @SuppressWarnings("serial")
 @WebServlet("*.me")
@@ -29,6 +30,11 @@ public class AboutController extends HttpServlet {
 		}
 		else if(com.equals("/JoinOk")) {
 			command = new JoinOkCommand();
+			command.execute(request, response);
+			viewPage += "myPage.jsp";
+		}
+		else if(com.equals("/Login")) {
+			command = new LoginOkCommand();
 			command.execute(request, response);
 			viewPage += "myPage.jsp";
 		}

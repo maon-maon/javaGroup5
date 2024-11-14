@@ -64,7 +64,9 @@
 		// 아이디저장 체크
 		function rememberEmailCheck() {
 			let ans = confirm("공용 장소에서 저장하시면 개인정보가 유출될 수 있으니 주의하시기 바랍니다. \n저장하시겠습니까?");
-			if(!ans) $("#rememberMid").prop("checked", false);
+			alert("let mid = ans    "+ans);
+			if(!ans) $("#rememberMid").prop("checked", ans);
+			else $("#rememberMid").prop("checked", ans);
 		}
 		
 		// 로그인 체크
@@ -74,7 +76,8 @@
 			
 			if(mid == "") alert("아이디를 입력하세요"); 
 			else  {
-				myform.submit();
+				location.href="Login.me";
+				//loginForm.submit();
 			}
 		}
 	
@@ -85,39 +88,16 @@
 	<div class="header">
 		<jsp:include page="/include/hd.jsp"/>
 	</div>
-	<!-- 사이드바 -->
-	<div class="sidenav">
-		<div>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<img src="" alt="어바웃로고">
-					<div class="input-group-append"><img src="" alt="프로필이미지"></div>
-				</div>
-			</div>
-			<br/>
-			<div><a href="http://192.168.50.52:9090/javaGroup5">||HOME||</a></div>
-			<div>
-			  <a href="scribbling">끄적이기</a>
-			  <a href="MeAnalysis">{나} 메모</a>
-			  <a href="scribbling">메모 수첩</a>
-			  <a href="#clients">타인의 메모</a>
-			  <a href="bookMark">책갈피</a>
-			  <a href="memoAnalysis">메모 정리</a>
-			</div>
-		</div>
-		<div>
-		  <a href="notice">공지사항</a>
-		  <a href="setting">설정</a>
-		  <a href="logOut">로그아웃</a>
-		</div>
-	</div>
+	
 	<!-- 메인페이지 -->
 	<div class="container" >
 		<div class="input-group">
 		 	<div class="input-group-prepend">
-		 		<img src="${ctp}/images/logo/na2.png" width="250px;" alt="어바웃로고">
+		 	<a href="http://192.168.50.52:9090/javaGroupJ5">
+		 		<img src="${ctp}/images/logo/na5.png" alt="어바웃로고">
+		 	</a>
 			 	<div id="loginForm" class="input-group-append">
-			 		<form name="loginForm" method="post" action="JoinOk.me">
+			 		<form name="loginForm" method="post" action="Login.me">
 						<label for="email">이메일입력</label><br>
 						<input type="text" id="mid" name="mid" class="form-control mb-2" required autofocus placeholder="아이디를 이메일형식으로 입력하세요" /><br>
 						<label for="password">비밀번호입력</label><br>

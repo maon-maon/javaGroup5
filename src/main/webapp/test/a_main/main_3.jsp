@@ -42,12 +42,12 @@
 		
 		// 로그인 체크
 		function loginCheck() {
-			let aMid = document.getElementById("aMid").value;
-			//alert("let aMid = aMid    "+aMid);
+			let mid = document.getElementById("mid").value;
+			//alert("let mid = mid    "+mid);
 			
-			if(aMid == "") alert("아이디를 입력하세요"); 
+			if(mid == "") alert("아이디를 입력하세요"); 
 			else  {
-				location.href="LoginOk.me";
+				location.href="Login.me";
 				//loginForm.submit();
 			}
 		}
@@ -68,11 +68,11 @@
 		 		<img src="${ctp}/images/logo/na5.png" alt="어바웃로고">
 		 	</a>
 			 	<div id="loginForm" class="input-group-append">
-			 		<form name="loginForm" method="post" action="LoginOk.me">
+			 		<form name="loginForm" method="post" action="Login.me">
 						<label for="email">이메일입력</label><br>
-						<input type="text" id="aMid" name="aMid" value="${cMid}" class="form-control mb-2" required autofocus placeholder="아이디를 이메일형식으로 입력하세요" /><br>
+						<input type="text" id="mid" name="mid" class="form-control mb-2" required autofocus placeholder="아이디를 이메일형식으로 입력하세요" /><br>
 						<label for="password">비밀번호입력</label><br>
-						<input type="password" id="aPwd" name="aPwd" class="form-control mb-2" required placeholder="비밀번호를 입력하세요"/><br>
+						<input type="password" id="pwd" name="pwd" class="form-control mb-2" required placeholder="비밀번호를 입력하세요"/><br>
 						<div class="row">
 							<div class="col"><button type="button" onclick="loginCheck()" class="btn btn-success  mr-2" >로그인</button></div>
 							<div class="col"><button type="button" onclick="location.href='Join.me'" class="btn btn-primary  mr-4" >회원가입</button></div>

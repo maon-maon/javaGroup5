@@ -61,7 +61,7 @@
     </li>
   </ul>
 </aside>
-출처: https://me-in-journey.com/entry/HTMLCSS-사이드바-메뉴-만들기-나타나는-2차-메뉴-만들기-feat-transform-translate [내 코딩 여정:티스토리]
+
 	</div>
 	<!-- 사이드바 -->
 	

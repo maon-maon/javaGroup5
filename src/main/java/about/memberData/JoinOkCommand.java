@@ -1,4 +1,4 @@
-package about.join;
+package about.memberData;
 
 import java.io.IOException;
 

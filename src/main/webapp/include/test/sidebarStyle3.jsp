@@ -1,7 +1,5 @@
-	<style>
+  <style>
 		#sideFold, #sidebar { background-color: #E6E6FA;}
-		
-		#sidebar { display: none;}
 		
 		#main { margin-left: 7%;}
 		

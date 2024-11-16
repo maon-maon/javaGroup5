@@ -30,7 +30,7 @@ public class LoginOkCommand implements AboutInterface {
 		
 		if(!vo.getaPwd().equals(aPwd)) {
 		//if(!aPwd.equals(vo.getaPwd())) {
-			request.setAttribute("message", "입력하신 회원정보가 없습니다. \\n 다시 확인하여 주시거나, 아이디/비밀번호를 찾기를 이용해주세요.");
+			request.setAttribute("message", "입력하신 회원정보가 없습니다. \\n다시 확인하여 주시거나, 아이디/비밀번호를 찾기를 이용해주세요.");
 			request.setAttribute("url", "Main");
 			return;
 		}

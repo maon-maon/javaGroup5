@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <title>회원가입</title>
   <jsp:include page="/include/bs4.jsp"/>
+  <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
 	<style>
 		#sidebar { 
 			background-color: #E6E6FA;
@@ -39,7 +40,7 @@
 				joinform.submit();
 			}
 		if("${message}" != null){
-		alert("${message}");
+			//alert("${message}");
 		}
 		
 		function fCheck(flag) {
@@ -170,7 +171,7 @@
 			</div>
 		</div>
 		<div id="back">
-		  <button onclick="location.href='${ctp}/Main'" class="btn btn-outline-dark">처음으로</button>
+		  <button onclick="location.href='Main'" class="btn btn-outline-dark">처음으로</button>
 		</div>
 	</div>
 	<!-- Sidebar -->

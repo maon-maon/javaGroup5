@@ -17,13 +17,13 @@ public class LoginCommand implements AboutInterface {
 		Cookie[] cookies = request.getCookies();
 		if(cookies != null) {
 			for(int i=0; i<cookies.length; i++) {
-				if(cookies[i].getName().equals("cMid")) {
-					request.setAttribute("aMid", cookies[i].getValue());
+				if(cookies[i].getName().equals("cAmid")) {
+					request.setAttribute("cAmid", cookies[i].getValue());
+					//System.out.println("cookies[i].getValue() : "+cookies[i].getValue() );
 					break;
 				}
 			}
 		}
-		
 		
 	}
 }

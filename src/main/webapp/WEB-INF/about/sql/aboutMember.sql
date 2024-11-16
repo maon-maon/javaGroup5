@@ -1,17 +1,29 @@
+show tables;
 
 create table aboutMember (
-	aIdx int not null auto_increment,
-	aMid varchar(20) not null,
-	aPwd varchar(100) not null,
-	aNickName varchar(20) not null,
-	aPhoto varchar(100) default 'logo.png',
-	aJoinD dattime not null default now(),
-	aVisitD varchar(20) not null,
-	aCur varchar(4) not null,
-	aAnl varchar(4) default '비동의',
-	aAddress varchar(100),
-	aTel varchar(20),
-	aVisitCnt varchar(1000),
-	aLevel int default '3',
-	primary key(aIdx)
+	aIdx int not null auto_increment, /*회원 고유변호*/
+	aMid varchar(50) not null, /*아이디=이메일*/
+	aPwd varchar(100) not null, /*비밀번호(SHA256 암호화처리)*/
+	aPwdHint varchar(50), 
+	aPwdAns varchar(50), 
+	aNickName varchar(20) not null, /*닉네임*/
+	aPhoto varchar(100) default 'logo.png', /*회원사진*/
+	aLevel int default '3', /*회원등급 관리0운영1회원2회원3휴면8탈퇴9*/
+	aAnl varchar(3) default '비동의', /*서비스제공동의*/
+	aJoinD datetime default now(), /*가입일*/
+	aVisitD datetime default now(), /*최종방문일*/
+	aVisitCnt int default 0, /*접속횟수*/
+	aAddress varchar(100), /*이벤트용주소*/
+	aTel varchar(20), /*이벤트용전화번호*/
+	primary key(aIdx),
+	unique key(aMid)
 );
+desc aboutMember;
+-- drop table aboutMember;
+
+select * from aboutMember;
+
+alter table aboutMember rename column aPwd_Hint to aPwdHint;
+
+select * from aboutMember where aMid = 'admin';
+select * from aboutMember where aIdx = '1';

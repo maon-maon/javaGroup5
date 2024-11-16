@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <title>끄적이기</title>
   <jsp:include page="/include/bs4.jsp"/>
+  <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
 </head>
 <body>
   <!-- header -->

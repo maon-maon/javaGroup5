@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <title>{About_Me}.Main</title>
   <jsp:include page="/include/bs4.jsp"/>
+  <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <style>
   	body {
   		margin: 0 auto;
@@ -20,7 +21,7 @@
   		display: grid;
    		place-items: center;
 		}
-		#loginForm {
+		#login-group {
 			width: 600px;
 			margin: 0 auto;
 	    text-align: left;
@@ -32,23 +33,37 @@
 	<script>
 		'use strict';
 		
+		//if(${cAmid} != null) $("#rememberMid").prop("checked", true);
+		
 		// 아이디저장 체크
 		function rememberEmailCheck() {
 			let ans = confirm("공용 장소에서 저장하시면 개인정보가 유출될 수 있으니 주의하시기 바랍니다. \n저장하시겠습니까?");
 			//alert("let mid = ans    "+ans);
 			if(!ans) $("#rememberMid").prop("checked", ans);
-			else $("#rememberMid").prop("checked", ans);
+			else {
+				("#rememberMid").prop("checked", ans);
+				loginForm.rememberMid.value = 'on'
+			}
 		}
 		
 		// 로그인 체크
 		function loginCheck() {
 			let aMid = document.getElementById("aMid").value;
+			let aPwd = document.getElementById("aPwd").value;
 			//alert("let aMid = aMid    "+aMid);
 			
-			if(aMid == "") alert("아이디를 입력하세요"); 
+			if(aMid == "") {
+				alert("아이디를 입력하세요");
+				$("#aMid").focus();
+			}
+			else if(aPwd == "") {
+				alert("비밀번호를 입력하세요");
+				$("#aPwd").focus();
+			}
 			else  {
-				location.href="LoginOk.me";
+				//location.href="LoginOk.me";
 				//loginForm.submit();
+				$("#loginForm").submit();
 			}
 		}
 	
@@ -64,13 +79,13 @@
 	<div class="container" >
 		<div class="input-group">
 		 	<div class="input-group-prepend">
-		 	<a href="http://192.168.50.52:9090/javaGroupJ5">
-		 		<img src="${ctp}/images/logo/na5.png" alt="어바웃로고">
-		 	</a>
-			 	<div id="loginForm" class="input-group-append">
-			 		<form name="loginForm" method="post" action="LoginOk.me">
+			 	<a href="http://192.168.50.52:9090/javaGroupJ5">
+			 		<img src="${ctp}/images/logo/na5.png" alt="어바웃로고">
+			 	</a>
+			 	<div id="login-group" class="input-group-append">
+			 		<form name="loginForm" id="loginForm" method="post" action="LoginOk.me">
 						<label for="email">이메일입력</label><br>
-						<input type="text" id="aMid" name="aMid" value="${cMid}" class="form-control mb-2" required autofocus placeholder="아이디를 이메일형식으로 입력하세요" /><br>
+						<input type="text" id="aMid" name="aMid" value="${cAmid}" class="form-control mb-2" required autofocus placeholder="아이디를 이메일형식으로 입력하세요" /><br>
 						<label for="password">비밀번호입력</label><br>
 						<input type="password" id="aPwd" name="aPwd" class="form-control mb-2" required placeholder="비밀번호를 입력하세요"/><br>
 						<div class="row">

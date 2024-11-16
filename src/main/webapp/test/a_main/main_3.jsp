@@ -6,6 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{About_Me}.Main</title>
+  <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <jsp:include page="/include/bs4.jsp"/>
   <style>
   	body {

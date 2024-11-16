@@ -8,12 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>메모수첩myPage.jsp</title>
   <jsp:include page="/include/bs4.jsp"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <style>
 		#sideFold, #sidebar { background-color: #E6E6FA;}
 		
 		#main { margin-left: 7%;}
-		
+		#back {
+			position: fixed;
+	  	bottom: 20px;
+	  	left: 20px;
+		}
   </style>
   <script>
 		function sideOpen() {
@@ -59,6 +63,9 @@
 		  <a class="w3-bar-item w3-button" href="setting">설정</a>
 		  <a class="w3-bar-item w3-button" href="logOut">로그아웃</a>
 		</div>
+		<div id="back">
+		  <button onclick="location.href='Main'" class="btn btn-outline-dark">처음으로</button>
+		</div>
 	</div>
 	<div id="sideIcon">
 	  <div id="sideFold" class="w3-sidebar w3-bar-block w3-xxlarge" style="width: 7%">
@@ -68,6 +75,9 @@
 		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a> 
 		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-globe"></i></a>
 		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-trash"></i></a> 
+		<div id="back">
+		  <button onclick="location.href='Main'" class="btn btn-outline-dark">처음으로</button>
+		</div>
 		</div>
 	</div>
 		

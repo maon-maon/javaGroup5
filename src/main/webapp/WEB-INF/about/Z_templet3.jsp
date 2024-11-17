@@ -24,7 +24,7 @@
 	<!-- 본문 시작-->
 	<div id="main">
 		<!-- 헤더 -->
-		<div class="w3-container">
+		<div class="header">
 			<jsp:include page="/include/hd.jsp"/>
 	  </div>
 		

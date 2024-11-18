@@ -1,50 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctp" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>메모수첩myPage.jsp</title>
-  <jsp:include page="/include/bs4.jsp"/>
-  <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
-  <style>
-		#sideFold, #sidebar { background-color: #E6E6FA;}
-		#sidebar { display: none;}
-		#main { margin-left: 7%;}
-		#back {
-			position: fixed;
-	  	bottom: 20px;
-	  	left: 20px;
-		}
-  </style>
-  <script>
-		function sideOpen() {
-		  document.getElementById("main").style.marginLeft = "20%";
-		  document.getElementById("sidebar").style.width = "20%";
-		  document.getElementById("sidebar").style.display = "block";
-		  document.getElementById("sideIcon").style.display = 'none';
-		}
-		function sideClose() {
-		  document.getElementById("main").style.marginLeft = "7%";
-		  document.getElementById("sidebar").style.display = "none";
-		  document.getElementById("sideFold").style.width = "7%";
-		  document.getElementById("sideIcon").style.display = "inline";
-		}
-	</script>
-	
-  
-</head>
-<body>
-	<!-- Sidebar -->
-	<div id="sidebar" class="w3-sidebar w3-bar-block  w3-card w3-animate-left" >
+<!-- Sidebar -->
+	<div id="sidebar" class="w3-sidebar w3-bar-block  w3-card w3-animate-left" style="display:none;" >
 		<div>
 			<div class="input-group">
 				<div class="input-group-prepend">
 					<button class="w3-bar-item w3-button w3-large" onclick="sideClose()">
-						<img src="${ctp}/images/logo/na5.png" width="50%" alt="어바웃로고">
+						<img src="${ctp}/images/logo/na5.png" width="100px" alt="어바웃로고">
 					</button>
+					<div class="input-group-append"><img src="" alt="프로필이미지"></div>
 				</div>
 			</div>
 			<br/>
@@ -76,7 +41,7 @@
 		  <a href="#" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="책갈피">bookmark_border</i></a> 
 		  <a href="#" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="메모 정리">data_usage</i></a> 
 		  <a href="#" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="공지사항">notifications_none</i></a> 
-		  <!-- <a href="#" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="설정">settings</i></a> --> 
+		  <!-- <a href="#" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="설정">settings</i></a> -->
 		  <button type="button" onclick="location.href='Settings.me'" style="border: none; padding-left: 15px;"><i class="material-icons" style="font-size:36px" title="설정">settings</i></button>
 		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-sign-out" style="font-size:36px" title="로그아웃"></i></a> 
 		<div id="back">
@@ -84,27 +49,3 @@
 		</div>
 		</div>
 	</div>
-		
-	<!-- 본문 시작-->
-	<div id="main">
-		<!-- 헤더 -->
-		<div class="header">
-			<jsp:include page="/include/hd.jsp"/>
-	  </div>
-		
-		<!-- 본문 내용 -->
-		<div class="container">
-			<!-- 캘린더 -->
-			<div>Calendar</div>
-			<!-- 최근 메모 출력 -->
-			<div>MemoList</div>
-		</div>
-		
-		<!-- footer -->
-		<div id="footer">
-			<jsp:include page="/include/ft.jsp"/>
-		</div>
-	</div>
-	<!-- 본문 끝 -->
-</body>
-</html>

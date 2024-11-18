@@ -25,8 +25,6 @@ public class LoginOkCommand implements AboutInterface {
 		AboutMemberDAO dao = new AboutMemberDAO();
 		
 		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
-		System.out.println("String aPwd     "+aPwd);
-		System.out.println("getMemberIdCheck     "+vo.getaPwd());
 		
 		if(!vo.getaPwd().equals(aPwd)) {
 		//if(!aPwd.equals(vo.getaPwd())) {
@@ -60,6 +58,6 @@ public class LoginOkCommand implements AboutInterface {
 //		}
 
 		request.setAttribute("message", aMid+"님 환영합니다.");
-		request.setAttribute("url", "Login.me");
+		request.setAttribute("url", "MyPage.me");
 	}
 }

@@ -4,8 +4,6 @@ public class AboutMemberVO {
 	private int aIdx;
 	private String aMid;
 	private String aPwd;
-	private String aPwdHint;
-	private String aPwdAns;
 	private String aNickName;
 	private String aPhoto;
 	private int aLevel;
@@ -13,6 +11,8 @@ public class AboutMemberVO {
 	private String aJoinD;
 	private String aVisitD;
 	private int aVisitCnt; 
+	private String aPwdHint;
+	private String aPwdAns;
 	private String aAddress;
 	private String aTel;
 

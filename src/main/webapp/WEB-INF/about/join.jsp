@@ -34,27 +34,95 @@
 			}
 		}
   </style>
+  <style>
+  	.agrtext {
+	    height: 150px;
+	    border: 1px solid black;
+	    background-color: white;
+	    white-space: pre-line;
+	    overflow-y: scroll;
+	    margin: 0 auto 20px;
+		}
+  </style>
   <script>
-  	'use sdivict';
+  	'use strict';
+  	let aMidbtn = 0;
+  	let aPwdbtn = 0;
   	
-	  function logIn() {
-			let reg = /^[a-zA-Z]*$/;
-			let aMid = joinform.aMid.value;
-				if (!reg.test(aMid)) {
-					alert("아이디를 다시 입력해주세요");
-					myform.aMid.focus();
-					return false
-				}		 
-				joinform.submit();
-			}
-		if("${message}" != null){
-			//alert("${message}");
+  	// 아이디/비밀번호/닉네임 정규식
+  	
+		
+		// 아이디 중복체크 확인
+	  function aMidCheck() {
+	  	let aMid = document.getElementById("aMid").value;
+
+	  	if(aMid.trim() == "") {
+				alert("아이디를 입력하세요.");
+				joinform.aMid.focus();
+				return false;
+		  }
+	  	
+	  	$.ajax({
+				type : "post",
+				url : "JoinBtnCheck.me",
+				data : {aMid : aMid},
+				success: function(res) {
+					if(res != "0") {
+						alert("이미 사용중인 아이디입니다. \n본인 계정이라면 아이디찾기를 이용해주세요.");
+					}
+					else {
+						alert("사용 가능한 아이디입니다.");
+						aMidbtn = 1;
+					}
+				} ,
+				error: function() {
+					alert("전송오류");
+				} 
+	  	});
+		}
+		// 닉네임 중복체크 확인
+	  function aNickNameCheck() {
+		  let aNickName = document.getElementById("aNickName").value;
+
+		  if(aNickName.trim() == "") {
+				alert("닉네임을 입력하세요.");
+				joinform.aNickName.focus();
+				return false;
+		  }
+	  	
+	  	$.ajax({
+				type : "post",
+				url : "JoinBtnCheck.me",
+				data : {aNickName : aNickName},
+				success: function(res) {
+					if(res != "0") {
+						alert("이미 사용중인 닉네임입니다. \n다른 닉네임을 사용해주세요.");
+					}
+					else {
+						alert("사용 가능한 닉네임입니다.");
+						aPwdbtn = 1;
+					}
+				} ,
+				error: function() {
+					alert("전송오류");
+				} 
+	  	});
 		}
 		
-		/* function fCheck(flag) {
-  		myform.flag.value = flag;
-  		myform.submit();
-		} */
+		//회원가입버튼
+		function joinCheck() {
+			let agr = joinform.agr.value;
+			let aPwd1 = joinform.aPwd1.value;
+			let aPwd2 = joinform.aPwd2.value;
+			if(aMidbtn == 0) alert("아이디 중복확인 버튼을 눌러주세요")
+			else if(aPwdbtn == 0) alert("닉네임 중복확인 버튼을 눌러주세요")
+			else if(aPwd1 == aPwd2) alert("비밀번호를 입력해주세요")
+			else if(agr == 'agrNO') alert("가입약관 동의시 가입됩니다")
+			else {
+				alert("가입이 완료되었습니다");
+				joinform.submit();
+			}
+		}
 	</script>
 
 </head>
@@ -93,23 +161,30 @@
 	      
         <label for="aMid" class="form-label">아이디</label>
        	<div class=" input-group mb-1">
-        	<input type="text" name="aMid" id="aMid" placeholder="입력하세요" class="form-control" autofocus required />
+        	<input type="text" name="aMid" id="aMid" placeholder="사용할 아이디를 이메일 형식으로 입력하세요" class="form-control" autofocus required />
         	<div class="input-group-append">
-	        	<input type="button" name="aMidBtn" value="중복체크" onclick="aMidCheck()" class="btn btn-secondary">
+	        	<input type="button" name="aMidBtn" value="중복확인" onclick="aMidCheck()" class="btn btn-secondary">
         	</div>
        	</div>
 	      
 	      <div class="mb-1">
-	        <label for="aPwd" class="form-label">비밀번호</label>
-	        <div ><input type="password" name="aPwd" id="aPwd" placeholder="입력하세요" class="form-control" required /></div>
+	        <!-- <label for="aPwd" class="form-label">비밀번호</label>
+	        <div ><input type="password" name="aPwd" id="aPwd" placeholder="비밀번호를 입력하세요" class="form-control" required /></div>
+					-- -->
+		      <label for="aPwd1" class="form-label">비밀번호</label>
+		      <input type="password" name="aPwd1" id="aPwd1" placeholder="비밀번호를 입력해주세요" class="form-control" />
+	       	<div class=" input-group mb-1">
+		        <input type="password" name="aPwd2" id="aPwd2" placeholder="다시 한 번 동일한 비밀번호를 입력해주세요" class="form-control" />
+	       	</div>
 	      </div>
+	      
 	      <!-- 중복체크 -->
 	      <div class="mb-1">
 	        <label for="aNickName" class="form-label">닉네임</label>
         	<div class="input-group mb-1">
 	        	<input type="text" name="aNickName" id="aNickName" placeholder="입력하세요" class="form-control" required />
 	        	<div class="input-group-append">
-		        	<input type="button" value="닉네임 중복체크" onclick="aNickNameCheck()" class="btn btn-secondary" />
+		        	<input type="button" value="중복확인" onclick="aNickNameCheck()" class="btn btn-secondary" />
 	        	</div>
         	</div>
 	      </div>
@@ -121,24 +196,22 @@
 	      <div class="mb-1">
 	        <label for="aAnl" class="form-label">본 사이트에서 제공하는 분석서비스를 이용하시겠습니까?</label>
 	        <span  class="text-center">
-	          <input type="radio" name="aAnl" id="NO" value="비동의" class="btn-check" checked /><label for="NO" class="form-label">비동의</label>
-	          <input type="radio" name="aAnl" id="YES" value="동의" class="btn-check" /><label for="YES" class="form-label mr-3">동의</label>
+	          <input type="radio" name="aAnl" id="aAnlNO" value="비동의" class="btn-check" checked /><label for="aAnlNO" class="form-label">비동의</label>
+	          <input type="radio" name="aAnl" id="aAnlYES" value="동의" class="btn-check" /><label for="aAnlYES" class="form-label mr-3">동의</label>
 	        </span>
 	      </div>
 	      <div class="mb-1">
+	        <div class="agrtext">
+						1............................................................................................................................
+						2.
+						3.
+						4.
+						5.........................................................................
+		      </div>
 	        <label for="agr" class="form-label">가입약관에 동의하십니까?</label>
-	        <div>
-		        <textarea rows="3" cols="100" id="agrText" name="agrText" readonly>
-1.........................................................................	
-2.
-3.
-4.
-5.........................................................................	
-		        </textarea>
-		       </div>
 	        <div  class="text-center">
-	          <input type="radio" name="agr" id="YES" value="동의" class="btn-check" /><label for="YES" class="form-label mr-3">동의</label>
-	          <input type="radio" name="agr" id="NO" value="비동의" class="btn-check" checked /><label for="NO" class="form-label">비동의</label>
+	          <input type="radio" name="agr" id="agrYES" value="agrYES" class="btn-check" /><label for="agrYES" class="form-label mr-3">동의</label>
+	          <input type="radio" name="agr" id="agrNO" value="agrNO" class="btn-check" checked /><label for="agrNO" class="form-label">비동의</label>
 	        </div>
 	      </div>
 	    <div class="text-right">

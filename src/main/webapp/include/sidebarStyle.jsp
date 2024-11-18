@@ -5,6 +5,11 @@
 		
 		#main { margin-left: 7%;}
 		
+		#back {
+			position: fixed;
+	  	bottom: 20px;
+	  	left: 20px;
+		}
   </style>
   <script>
 		function sideOpen() {

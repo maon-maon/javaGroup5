@@ -6,26 +6,69 @@
 <head>
   <meta charset="UTF-8">
   <title>memoAnalysis.jsp</title>
-  <jsp:include page="/include/bs4.jsp"/>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
+  <link rel="stylesheet" href="style.css">
+  <jsp:include page="/include/bs4.jsp"/>
+  <jsp:include page="/include/sidebarStyle.jsp"/>
+  <style>
+  	.container {
+    width: 80%;
+    margin: 0 auto;
+		}
+		
+		.section {
+		    border: 1px solid #ccc;
+		    padding: 20px;
+		    margin-bottom: 20px;
+		}
+	</style>
+	<script>
+	
+	</script>
 </head>
 <body>
-  <!-- header -->
-	<div class="header">
-		<jsp:include page="/include/hd.jsp"/>
-	</div>
-	<!-- 사이드바 -->
+  <!-- Sidebar -->
 	<jsp:include page="/include/sidebar.jsp"/>
-	<!-- 본문 내용 -->
-	<div class="container">
-		<!-- 월간 그래프 -->
-		<div>그래프</div>
-		<!-- 분야별 분석내용-->
-		<div>분야별 분석 내용</div>
+
+	<!-- 본문 시작-->
+	<div id="main">
+		<!-- 헤더 -->
+		<div class="header">
+			<jsp:include page="/include/hd.jsp"/>
+	  </div>
+		
+		
+		<!-- 본문 내용 -->
+		<div class="container">
+			--
+			<div class="container">
+        <div class="section">
+            <label for="profile">프로필 이미지</label>
+            <input type="file" id="profile">
+        </div>
+        <div class="section">
+            <label for="info1">정보 입력 1</label>
+            <input type="text" id="info1">
+            <label for="info2">정보 입력 2</label>
+            <input type="text" id="info2">
+            <label for="info3">정보 입력 3</label>
+            <input type="text" id="info3">
+        </div>
+        <div class="section">
+            <label for="info4">정보 입력 4</label>
+            <input type="text" id="info4">
+            <label for="info5">정보 입력 5</label>
+            <input type="text" id="info5">
+        </div>
+    </div>
+			--
+		</div>
+		
+		<!-- footer -->
+		<div id="footer">
+			<jsp:include page="/include/ft.jsp"/>
+		</div>
 	</div>
-	<!-- footer -->
-	<div id="footer">
-		<jsp:include page="/include/ft.jsp"/>
-	</div>
+	<!-- 본문 끝 -->
 </body>
 </html>

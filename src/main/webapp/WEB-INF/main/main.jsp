@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -33,16 +34,17 @@
 	<script>
 		'use strict';
 		
-		//if(${cAmid} != null) $("#rememberMid").prop("checked", true);
+		if('${message}' != "") alert("${message}");
 		
 		// 아이디저장 체크
 		function rememberEmailCheck() {
 			let ans = confirm("공용 장소에서 저장하시면 개인정보가 유출될 수 있으니 주의하시기 바랍니다. \n저장하시겠습니까?");
 			//alert("let mid = ans    "+ans);
-			if(!ans) $("#rememberMid").prop("checked", ans);
+			let $rememberMid = $('#rememberMid');
+			if(!ans) $rememberMid.prop("checked", ans);
 			else {
-				("#rememberMid").prop("checked", ans);
-				loginForm.rememberMid.value = 'on'
+				$rememberMid.prop("checked", ans);
+				loginForm.rememberMid.value = 'ture'
 			}
 		}
 		
@@ -67,6 +69,16 @@
 			}
 		}
 	
+		//로그인시 적용
+		$(document).ready(function() {
+			let chck = '${cRememberMid}';
+			//alert("chck   " + chck);
+			if (chck === "true") {
+		    $('#rememberMid').prop('checked', true);
+			}
+		});
+		
+		
 	</script>
 </head>
 <body>
@@ -92,9 +104,13 @@
 							<div class="col"><button type="button" onclick="loginCheck()" class="btn btn-success  mr-2" >로그인</button></div>
 							<div class="col"><button type="button" onclick="location.href='Join.me'" class="btn btn-primary  mr-4" >회원가입</button></div>
 						</div>
-						<span><a href="#">아이디찾기버튼/비밀번호찾기버튼</a></span><br>
-						<input type="checkbox" id="rememberMid" name="rememberMid" onclick="javascript:rememberEmailCheck()">
-						<label for="rememberMid">아이디저장</label>
+						<div>
+							<input type="checkbox" id="rememberMid" name="rememberMid"  onclick="javascript:rememberEmailCheck()">
+							<label for="rememberMid">아이디저장</label>
+						</div>
+						<div>
+							<a href="#">아이디찾기버튼/비밀번호찾기버튼</a>
+						</div>
 			 		</form>
 			 	</div>
 		 	</div>

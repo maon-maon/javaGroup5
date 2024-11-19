@@ -53,15 +53,15 @@ public class AboutMemberDAO {
 				vo.setaIdx(rs.getInt("aIdx"));
 				vo.setaMid(rs.getString("aMid"));
 				vo.setaPwd(rs.getString("aPwd"));
-				vo.setaPwdHint(rs.getString("aPwdHint"));
-				vo.setaPwdAns(rs.getString("aPwdAns"));
 				vo.setaNickName(rs.getString("aNickName"));
 				vo.setaPhoto(rs.getString("aPhoto"));
-				vo.setaLevel(rs.getInt("aLevel"));
 				vo.setaAnl(rs.getString("aAnl"));
+				vo.setaLevel(rs.getInt("aLevel"));
 				vo.setaJoinD(rs.getString("aJoinD"));
 				vo.setaVisitD(rs.getString("aVisitD"));
 				vo.setaVisitCnt(rs.getInt("aVisitCnt"));
+				vo.setaPwdHint(rs.getString("aPwdHint"));
+				vo.setaPwdAns(rs.getString("aPwdAns"));
 				vo.setaAddress(rs.getString("aAddress"));
 				vo.setaTel(rs.getString("aTel"));
 			}
@@ -146,6 +146,21 @@ public class AboutMemberDAO {
 		}
 		return res;
 	}
+	
+	// 방문일 증가
+	public void setUserInfoUpdate(AboutMemberVO vo) {
+		try {
+			sql = "update aboutMember set aVisitCnt=aVisitCnt+1 where aMid = ?"; //
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getaMid());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("SQL 오류: "+e.getMessage());
+		} finally {
+			pstmtClose();
+		}	
+	}
+	
 	
 	
 		

@@ -15,18 +15,24 @@
 	<script>
 	 'use strict'
 	 
-		function aPwdChangeCheck() {
-			let aPwd = aPwdChangeForm.aPwd.value;
+		function aPwdVerifyCheck() {
+			let aPwd = aPwdVerifyForm.aPwd.value;
+			if(aPwd == "") {
+				alert("비밀번호를 입력해주세요");
+				aPwdVerifyForm.aPwd.focus();
+				return false;
+			}
 			$.ajax({
 				type : "post",
-				url : "PwdChangeCheck.me",
+				url : "PwdVerifyCheck.me",
 				data : {aPwd : aPwd},
 				success: function(res) {
 					if(res != "0") {
-						aPwdChangeForm.submit();
+						aPwdVerifyForm.submit();
 					}
 					else {
 						alert("비밀번호를 다시 확인하여 주세요");
+						aPwdVerifyForm.aPwd.focus();
 					}
 				} ,
 				error: function() {
@@ -34,6 +40,19 @@
 				} 
 			});
 		}
+	 
+		/* function enterkey() {
+			let aPwd = aPwdChangeForm.aPwd.value;
+			if(aPwd == "") {
+				alert("비밀번호를 입력해주세요");
+				return false;
+			}
+			$('#aPwd').keydown(function(e) {
+				if(e.keyCode == 13) {
+					$('#aMidBtn').click();
+				}
+			});
+		} */
 	</script>
 </head>
 <body>
@@ -47,17 +66,16 @@
 			<jsp:include page="/include/hd.jsp"/>
 	  </div>
 		
-		
 		<!-- 본문 내용 -->
 		<div class="container">
-			<div>회원 정보 수정을 위해 본인이증이 필요합니다.</div>
+			<div>회원 정보 수정을 위해 본인인증이 필요합니다.</div>
 			<br/>
-			<form name="aPwdChangeForm" method="post" action="MemberUpdate.me">
+			<form name="aPwdVerifyForm" method="post" action="MemberUpdate.me" onsubmit="return false;">
 				<label for="aPwd" class="form-label">비밀번호를 입력해주세요</label>
 	     	<div class="input-group mb-1">
 	        <input type="password" name="aPwd" id="aPwd" placeholder="현재 사용중인 비밀번호를 입력해주세요" style="width: 50%" />
 	      	<div class="input-group-append">
-	        	<input type="button" name="aMidBtn" value="확인" onclick="aPwdChangeCheck()" class="btn btn-secondary">
+	        	<button type="button" name="aMidBtn" onclick="aPwdVerifyCheck()" tabindex="0" class="btn btn-secondary">확인</button>
 	      	</div>
 	     	</div>
      	</form>

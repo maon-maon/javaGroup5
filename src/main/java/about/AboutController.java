@@ -9,11 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import about.login.LogOutCommand;
 import about.login.LoginOkCommand;
 import about.memberData.JoinBtnCheckCommand;
 import about.memberData.JoinOkCommand;
+import about.memberData.MemberUpdateCommand;
 import about.memberData.MemberUpdateOkCommand;
-import about.memberData.PwdChangeCheckCommand;
+import about.memberData.PwdVerifyCheckCommand;
+import about.memo.ScribblingCommand;
+import about.memo.ScribblingOkCommand;
 
 @SuppressWarnings("serial")
 @WebServlet("*.me")
@@ -55,18 +59,36 @@ public class AboutController extends HttpServlet {
 		else if(com.equals("/MemberVerify")) {
 			viewPage += "memberVerify.jsp";
 		}
-		else if(com.equals("/PwdChangeCheck")) {
-			command = new PwdChangeCheckCommand();
+		else if(com.equals("/PwdVerifyCheck")) {
+			command = new PwdVerifyCheckCommand();
 			command.execute(request, response);
 			return;
 		}
 		else if(com.equals("/MemberUpdate")) {
+			command = new MemberUpdateCommand();
+			command.execute(request, response);
 			viewPage += "memberUpdate.jsp";
 		}
 		else if(com.equals("/MemberUpdateOk")) {
 			command = new MemberUpdateOkCommand();
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/LogOut")) {
+			command = new LogOutCommand();
+			command.execute(request, response);
+			viewPage = "main";
+		}
+		else if(com.equals("/Scribbling")) {
+			viewPage += "scribbling .jsp";
+		}
+		else if(com.equals("/ScribblingOk")) {
+			command = new ScribblingOkCommand();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/MemoAnalysis")) {
+			viewPage += "memoAnalysis.jsp";
 		}
 		
 		

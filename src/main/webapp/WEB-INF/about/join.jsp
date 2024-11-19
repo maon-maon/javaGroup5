@@ -112,11 +112,11 @@
 		//회원가입버튼
 		function joinCheck() {
 			let agr = joinform.agr.value;
-			let aPwd1 = joinform.aPwd1.value;
+			let aPwd = joinform.aPwd.value;
 			let aPwd2 = joinform.aPwd2.value;
 			if(aMidbtn == 0) alert("아이디 중복확인 버튼을 눌러주세요")
 			else if(aPwdbtn == 0) alert("닉네임 중복확인 버튼을 눌러주세요")
-			else if(aPwd1 == aPwd2) alert("비밀번호를 입력해주세요")
+			else if(aPwd != aPwd2) alert("동일한 비밀번호로 다시 입력해주세요")
 			else if(agr == 'agrNO') alert("가입약관 동의시 가입됩니다")
 			else {
 				alert("가입이 완료되었습니다");
@@ -154,7 +154,7 @@
 		<!-- 본문 내용 -->
 		<div class="container">
 			<h3>당신의 메모수첩을 만들어 보세요</h3>
-			<form name="joinform" method="post" action="JoinOk.me">
+			<form name="joinform" method="post" action="JoinOk.me" onsubmit="return false;">
 	      <hr>
 	      <p>순서대로 내용을 작성해 주세요</p>
 	      <hr>
@@ -171,8 +171,8 @@
 	        <!-- <label for="aPwd" class="form-label">비밀번호</label>
 	        <div ><input type="password" name="aPwd" id="aPwd" placeholder="비밀번호를 입력하세요" class="form-control" required /></div>
 					-- -->
-		      <label for="aPwd1" class="form-label">비밀번호</label>
-		      <input type="password" name="aPwd1" id="aPwd1" placeholder="비밀번호를 입력해주세요" class="form-control" />
+		      <label for="aPwd" class="form-label">비밀번호</label>
+		      <input type="password" name="aPwd" id="aPwd" placeholder="비밀번호를 입력해주세요" class="form-control" />
 	       	<div class=" input-group mb-1">
 		        <input type="password" name="aPwd2" id="aPwd2" placeholder="다시 한 번 동일한 비밀번호를 입력해주세요" class="form-control" />
 	       	</div>
@@ -210,8 +210,8 @@
 		      </div>
 	        <label for="agr" class="form-label">가입약관에 동의하십니까?</label>
 	        <div  class="text-center">
-	          <input type="radio" name="agr" id="agrYES" value="agrYES" class="btn-check" /><label for="agrYES" class="form-label mr-3">동의</label>
 	          <input type="radio" name="agr" id="agrNO" value="agrNO" class="btn-check" checked /><label for="agrNO" class="form-label">비동의</label>
+	          <input type="radio" name="agr" id="agrYES" value="agrYES" class="btn-check" /><label for="agrYES" class="form-label mr-3">동의</label>
 	        </div>
 	      </div>
 	    <div class="text-right">

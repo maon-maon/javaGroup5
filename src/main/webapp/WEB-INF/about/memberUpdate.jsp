@@ -6,6 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <title>memberUpdate.jsp</title>
+  <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
   <style>
@@ -13,8 +14,9 @@
 	</style>
 	<script>
 	'use strict';
-		let aNickNameBtn = 0;
-		let aPwdBtn = 0;
+		let aNickNameBtnSw = 0;
+		let aPwdBtnSw = 0;
+
 		// 닉네임 중복체크 확인
 	  function aNickNameCheck() {
 		  let aNickName = document.getElementById("aNickName").value;
@@ -35,7 +37,7 @@
 					}
 					else {
 						alert("사용 가능한 닉네임입니다.");
-				  	aNickNameBtn++;
+				  	aNickNameBtnSw++;
 					}
 				} ,
 				error: function() {
@@ -48,16 +50,16 @@
 		function aPwdChangeCheck() {
 			let aPwd1 = updateForm.aPwd1.value;
 			let aPwd2 = updateForm.aPwd2.value;
-			
+
 			if(aPwd1 != aPwd2) {
 				alert("변경하려는 비밀번호를 동일하게 입력해 주세요");
-				updateForm.aPwd1.focus();
+				updateForm.aPwd.focus();
 			}
 			else {
 
 				$.ajax({
 					type : "post",
-					url : "PwdChangeCheck.me",
+					url : "PwdVerifyCheck.me",
 					data : {aPwd : aPwd1},
 					success: function(res) {
 						if(res != "0") {
@@ -66,9 +68,9 @@
 						else {
 							alert("비밀번호를 확인하였습니다.");
 							updateForm.aPwd.value = aPwd1;
-							aPwdBtn++;
+							aPwdBtnSw++;
 						}
-					} ,
+					}, 
 					error: function() {
 						alert("전송오류");
 					} 
@@ -101,15 +103,26 @@
 				};
 				reader.readAsDataURL(input.files[0]);
 			}
-			else $("#demo").attr("src", "");
+			else $('#demo').attr("src", "");
 		}
 		
+		// 폼 전송전 처리
 		function submitCheck() {
-			let aMid = $("#aMid").val();
-			if(aPwdBtn == 0) alert("비밀번호 확인 버튼을 눌러주세요.");
-			else if(aNickNameBtn == 0) alert("닉네임 확인 버튼을 눌러주세요.");
+			let aPwd2 = $('#aPwd2').val();
+			let aNickName = $('#aNickName').val();
+			if(aPwd2 != "" && aPwdBtnSw == 0) alert("비밀번호 확인 버튼을 눌러주세요.");
+			else if(aNickName != "" && aNickNameBtnSw == 0) alert("닉네임 확인 버튼을 눌러주세요.");
 			else updateForm.submit();
 		}
+		
+		//로딩 후 적용
+		/* $(document).ready(function() {
+			let chck = '${cRememberMid}';
+			//alert("chck   " + chck);
+			if (chck === "true") {
+		    $('#rememberMid').prop('checked', true);
+			}
+		}); */
 	</script>
 </head>
 <body>
@@ -134,22 +147,22 @@
 	      
         <label for="aMid" class="form-label">아이디</label>
        	<div class=" input-group mb-1">
-        	<input type="text" name="aMid" id="aMid" value="${sAmid}" class="form-control"  readonly/>
+        	<input type="text" name="aMid" id="aMid" placeholder="${sAmid}" class="form-control"  readonly/>
        	</div>
 	      
-	      <label for="aPwd1" class="form-label">비밀번호</label>
+	      <label for="aPwd" class="form-label">비밀번호</label>
 	      <input type="password" name="aPwd1" id="aPwd1" placeholder="변경하실 비밀번호를 입력해주세요" class="form-control" />
        	<div class=" input-group mb-1">
-	        <input type="password" name="aPwd2" id="aPwd2" placeholder="다시 한 번 동일한 비밀번호를 입력해주세요" class="form-control" />
+	        <input type="password" name="aPwd2" id="aPwd2" placeholder="다시 한 번 동일한 비밀번호를 입력해주세요"  class="form-control" />
         	<div class="input-group-append">
-	        	<input type="button" name="aMidBtn" value="번호확인" onclick="aPwdChangeCheck()" class="btn btn-secondary">
+	        	<input type="button" name="aPwdBtn" id="aPwdBtn" value="번호확인" onclick="aPwdChangeCheck()" class="btn btn-secondary">
         	</div>
        	</div>
 	      <!-- 중복체크 -->
 	      <div class="mb-1">
 	        <label for="aNickName" class="form-label">닉네임</label>
         	<div class="input-group mb-1">
-	        	<input type="text" name="aNickName" id="aNickName" placeholder="변경하실 닉네임을 입력하세요" class="form-control" />
+	        	<input type="text" name="aNickName" id="aNickName" placeholder="${vo.aNickName}님 변경하실 닉네임을 입력하세요" class="form-control" />
 	        	<div class="input-group-append">
 		        	<input type="button" value="중복확인" onclick="aNickNameCheck()" class="btn btn-secondary" />
 	        	</div>
@@ -166,14 +179,15 @@
 	      </div>
 	      <div class="mb-1">
 	        <label for="aAnl" class="form-label">본 사이트에서 제공하는 분석서비스를 이용하시겠습니까?</label>
-	        <span  class="text-center">
-	          <input type="radio" name="aAnl" id="aAnlNO" value="비동의" class="btn-check" checked /><label for="aAnlNO" class="form-label">비동의</label>
-	          <input type="radio" name="aAnl" id="aAnlYES" value="동의" class="btn-check" /><label for="aAnlYES" class="form-label mr-3">동의</label>
-	        </span>
+	        <div  class="text-center">
+	          <input type="radio" name="aAnl" id="aAnlNO" value="비동의" class="btn-check" <c:if test="${vo.aAnl == '비동의'}">checked</c:if> /><label for="aAnlNO" class="form-label">비동의</label>
+	          <input type="radio" name="aAnl" id="aAnlYES" value="동의" class="btn-check" <c:if test="${vo.aAnl == '동의'}">checked</c:if>/><label for="aAnlYES" class="form-label mr-3">동의</label>
+	        </div>
 	      </div>
 	      <div class="text-right">
 	      	<button type="button" onclick="submitCheck()" class="btn btn-dark">수정하기</button>
 	      </div>
+	      <div><input type="hidden" name="aMid" value="${vo.aMid}"></div>
 	      <div><input type="hidden" name="aPwd"></div>
 			</form>
 		</div>

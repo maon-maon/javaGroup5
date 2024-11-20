@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import about.AboutInterface;
-import about.AboutMemberDAO;
 
 public class MemberUpdateCommand implements AboutInterface {
 

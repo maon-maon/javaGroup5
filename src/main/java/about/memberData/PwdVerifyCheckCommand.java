@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import about.AboutInterface;
-import about.AboutMemberDAO;
 import common.SecurityUtil;
 
 public class PwdVerifyCheckCommand implements AboutInterface {

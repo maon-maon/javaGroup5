@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import about.AboutInterface;
-import about.AboutMemberDAO;
+import about.memberData.AboutMemberDAO;
 import about.memberData.AboutMemberVO;
 import common.SecurityUtil;
 
@@ -69,15 +69,15 @@ public class LoginOkCommand implements AboutInterface {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String today = dateFormat.format(date);
 		String aVisitD = vo.getaVisitD().substring(0,10);
-		System.out.println("today:  "+today);
-		System.out.println("aVisitD:  "+aVisitD);
+		//System.out.println("today:  "+today);
+		//System.out.println("aVisitD:  "+aVisitD);
 		
 		//방문카운트 1회 증가
 		if(!today.equals(aVisitD)) {
 			vo.setaVisitCnt(vo.getaVisitCnt()+1);
 			dao.setUserInfoUpdate(vo);
 		}
-
+		
 		request.setAttribute("message", aMid+"님 새로운 쪽지를 남겨주세요");
 		request.setAttribute("url", "MyPage.me");
 	}

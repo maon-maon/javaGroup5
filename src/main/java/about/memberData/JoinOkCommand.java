@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import about.AboutInterface;
-import about.AboutMemberDAO;
 import common.SecurityUtil;
 
 public class JoinOkCommand implements AboutInterface {

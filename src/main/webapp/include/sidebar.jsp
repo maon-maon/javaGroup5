@@ -15,7 +15,7 @@
 			<br/>
 			<div>
 				<button type="button" onclick="location.href='Scribbling.me'" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" style="font-size:36px" title="끄적이기"></i>끄적이기</button>
-			  <button type="button" onclick="location.href='MeAnalysis.me'" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="{나}메모">library_books</i>{나}메모</button>
+			  <button type="button" onclick="location.href='MeAnalysis.me'" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="{나}메모">library_books</i>{나}에대해</button>
 			  <button type="button" onclick="location.href='MyPage.me'" class="w3-bar-item w3-button"><i class="fa fa-book" style="font-size:36px" title="메모수첩"></i>메모수첩</button>
 			  <a class="w3-bar-item w3-button" href="#clients">타인의 메모</a>
 			  <a class="w3-bar-item w3-button" href="bookMark">책갈피</a>
@@ -35,7 +35,7 @@
 	  <div id="sideFold" class="w3-sidebar w3-bar-block w3-xxlarge" style="width: 7%">
 	  	<button id="openNav" class="w3-button w3-xlarge" onclick="sideOpen()"><i class="fa fa-navicon" style="font-size:36px"></i></button>
 		  <button type="button" onclick="location.href='Scribbling.me'" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" style="font-size:36px" title="끄적이기"></i></button>
-		  <button type="button" onclick="location.href='MeAnalysis.me'" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="{나}메모">library_books</i></button>
+		  <button type="button" onclick="location.href='MeAnalysis.me'" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="{나}에대해">library_books</i></button>
 		  <button type="button" onclick="location.href='MyPage.me'" class="w3-bar-item w3-button"><i class="fa fa-book" style="font-size:36px" title="메모수첩"></i></button>
 		  <a href="#" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px">import_contacts</i></a> 
 		  <a href="#" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px">collections_bookmark</i></a> 

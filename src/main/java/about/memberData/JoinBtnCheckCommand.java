@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import about.AboutInterface;
-import about.AboutMemberDAO;
 
 public class JoinBtnCheckCommand implements AboutInterface {
 

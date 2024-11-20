@@ -1,11 +1,10 @@
-package about;
+package about.memberData;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
-import about.memberData.AboutMemberVO;
 import common.GetConn;
 
 public class AboutMemberDAO {
@@ -150,7 +149,7 @@ public class AboutMemberDAO {
 	// 방문일 증가
 	public void setUserInfoUpdate(AboutMemberVO vo) {
 		try {
-			sql = "update aboutMember set aVisitCnt=aVisitCnt+1 where aMid = ?"; //
+			sql = "update aboutMember set aVisitCnt=aVisitCnt+1, aVisitD=now() where aMid = ?"; //
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getaMid());
 			pstmt.executeUpdate();

@@ -11,7 +11,6 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import about.AboutInterface;
-import about.AboutMemberDAO;
 import common.SecurityUtil;
 
 public class MemberUpdateOkCommand implements AboutInterface {

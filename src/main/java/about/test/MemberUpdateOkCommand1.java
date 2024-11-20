@@ -10,7 +10,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import about.AboutInterface;
-import about.AboutMemberDAO;
+import about.memberData.AboutMemberDAO;
 import about.memberData.AboutMemberVO;
 
 public class MemberUpdateOkCommand1 implements AboutInterface {

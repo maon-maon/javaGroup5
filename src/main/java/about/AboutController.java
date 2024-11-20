@@ -16,8 +16,9 @@ import about.memberData.JoinOkCommand;
 import about.memberData.MemberUpdateCommand;
 import about.memberData.MemberUpdateOkCommand;
 import about.memberData.PwdVerifyCheckCommand;
-import about.memo.ScribblingCommand;
-import about.memo.ScribblingOkCommand;
+import about.scribble.MyPageCommand;
+import about.scribble.ScribblingCommand;
+import about.scribble.ScribblingOkCommand;
 
 @SuppressWarnings("serial")
 @WebServlet("*.me")
@@ -51,6 +52,8 @@ public class AboutController extends HttpServlet {
 			viewPage = "/include/message.jsp";
 		}
 		else if(com.equals("/MyPage")) {
+			command = new MyPageCommand();
+			command.execute(request, response);
 			viewPage += "myPage.jsp";
 		}
 		else if(com.equals("/Settings")) { //메인 컨트롤러에서 작동//about.login
@@ -80,6 +83,8 @@ public class AboutController extends HttpServlet {
 			viewPage = "main";
 		}
 		else if(com.equals("/Scribbling")) {
+			command = new ScribblingCommand();
+			command.execute(request, response);
 			viewPage += "scribbling .jsp";
 		}
 		else if(com.equals("/ScribblingOk")) {

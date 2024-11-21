@@ -92,5 +92,12 @@ public class ScribbleDAO {
 	}
 	
 	
+	public ScribbleVO getAllScribbleList() {
+		vo = new ScribbleVO();
+		
+		return null;
+	}
+	
+	
 	
 }

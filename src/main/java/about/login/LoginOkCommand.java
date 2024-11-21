@@ -63,6 +63,7 @@ public class LoginOkCommand implements AboutInterface {
 		HttpSession session = request.getSession();
 		session.setAttribute("sAmid", aMid);
 		session.setAttribute("sRememberMid", rememberMid);
+		session.setAttribute("sLogin", "on");
 		
 		// 접속 날짜
 		Date date = new Date();

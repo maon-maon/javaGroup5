@@ -1,13 +1,20 @@
 show tables;
 
-create tables complaint(
+create table complaint(
 	cpIdx int not null AUTO_INCREMENT,
 	cpCtg text not null,
-	cpMemoIdx int not null,
-
-	`aAnl` VARCHAR(3) NULL DEFAULT '비동의',
-	`aLevel` INT(11) NULL DEFAULT '3',
-	`aJoinD` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-	primary key (cpIdx),
-	foreign key(cpMemoIdx) references()
+	cpMid varchar(50) not null,
+	cpContent text null,
+	cpMemoIdx int ,
+	cpMemoTitle varchar(100) ,
+	cpDate DATETIME  default CURRENT_TIMESTAMP,
+	cpCnt int default 0,
+	primary key(cpIdx),
+	foreign key(cpMemoIdx) references scribble(inIdx) on update cascade,
+	foreign key(cpMemoTitle) references scribble(inTitle) ON DELETE RESTRICT,
+	foreign key(cpMid) references aboutmember(aMid) on update cascade
 );
+desc complaint;
+--drop table complaint;
+
+select * from complaint;

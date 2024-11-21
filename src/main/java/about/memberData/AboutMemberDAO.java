@@ -3,6 +3,9 @@ package about.memberData;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import about.scribble.ScribbleVO;
+
 import java.sql.PreparedStatement;
 
 import common.GetConn;
@@ -160,9 +163,23 @@ public class AboutMemberDAO {
 		}	
 	}
 	
+	// 회원분류 변경 : 관리0운영1회원2회원3휴면8탈퇴9
+	public int setUserLevel(String cpMid) {
+		int res = 0;
+		try {
+			sql = "";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cpMid);
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("SQL 오류: "+e.getMessage());
+		} finally {
+			pstmtClose();
+		}	
+		return res;
+	}
 	
 	
-		
 		
 		
 		

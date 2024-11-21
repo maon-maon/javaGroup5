@@ -13,6 +13,7 @@ create table scribble (
 	inCpl VARCHAR(3)  DEFAULT 'NO',
 	inCpICnt INT NULL,
 	PRIMARY KEY(inIdx),
+	unique key(inTitle),
 	foreign key(inMid) references aboutmember(aMid) on update cascade
 );
 desc scribble;

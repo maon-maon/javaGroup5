@@ -1,5 +1,6 @@
 package about.scribble;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,6 +16,16 @@ public class MyPageCommand implements AboutInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		String realPath = request.getServletContext().getRealPath("/images/imgData");
+//		
+//		String[] files = new File(realPath).list();
+//		
+//		request.setAttribute("files", files);
+//		request.setAttribute("fileCount", files.length);
+//		System.out.println("files : "+files);
+		
+		
+		
 		//데이터베이스 연동 값 가져오기
 		HttpSession session = request.getSession();
 		String sAmid = (String)session.getAttribute("sAmid");
@@ -23,7 +34,7 @@ public class MyPageCommand implements AboutInterface {
 		
 		ArrayList<ScribbleVO> vos = dao.getScribbleList(sAmid);
 		
-		System.out.println("vos.get(0): "+vos);
+		//System.out.println("vos.get(0): "+vos);
 		
 		request.setAttribute("vos", vos);
 		

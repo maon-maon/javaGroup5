@@ -160,7 +160,6 @@
 		        <button type="button" name="memoBtn" id="memoBtn" onclick="memoBtnCk()" class="w3-button w3-indigo w3-hover-white  w3-border w3-border-indigo w3-round-xlarge">수첩에 붙이기</button>
 	        </div>
         </div>
-        ${vo.aMid}
         <div><input type="hidden" name="inMid" value="${vo.aMid}"></div>
 				<div><input type="hidden" name="inScore" id="inScore"></div>
 			</form>

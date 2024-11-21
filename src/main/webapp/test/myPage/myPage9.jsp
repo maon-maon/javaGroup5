@@ -56,9 +56,6 @@
       line-height: 20px;
       border: 1px solid #ccc;
     }
-    #sc img {
-    	width: 70%;
-    }
   </style>
   <script>
 
@@ -121,51 +118,54 @@
 			<c:forEach var="vo" items="${vos}" varStatus="st">
       	<div class="section-BG">
         	<div class="section">
-	      		<!-- -- -->
-	        	<div class="section">
-	        		<span class="row mb-2">
-	        			<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block col-4">날짜</button>
-	        		 	<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block col">${fn:substring(vo.inDate,0,19)}</button>
-	        		</span>
-	        		<span class="row mb-2">
-	        			<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block col-4">카테고리</button>
-	        		 	<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block col">${vo.inCtg}</button>
-	        		</span>
-	        		<span class="row">
-	        			<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block col-4">타이틀</button>
-	        		 	<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block col">${vo.inTitle}</button>
-	        		</span>
-	        	</div>
-		        <div class="section">
-		        	<%-- 스코어 : ${vo.inScore} --%>
-        			<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block">
-			        	<div id="sc" class="text-center">
-				        	<c:if test="${vo.inScore == 1}"><img src="${ctp}/images/sc/sc1.png"></c:if>
-				        	<c:if test="${vo.inScore == 2}"><img src="${ctp}/images/sc/sc2.png"></c:if>
-				        	<c:if test="${vo.inScore == 3}"><img src="${ctp}/images/sc/sc3.png"></c:if>
-				        	<c:if test="${vo.inScore == 4}"><img src="${ctp}/images/sc/sc4.png"></c:if>
-				        	<c:if test="${vo.inScore == 5}"><img src="${ctp}/images/sc/sc5.png"></c:if>
-				        	<c:if test="${vo.inScore == 6}"><img src="${ctp}/images/sc/sc6.png"></c:if>
-				        	<c:if test="${vo.inScore == 7}"><img src="${ctp}/images/sc/sc7.png"></c:if>
-			        	</div>
-        			</button>
+	        	<div>날짜 : ${fn:substring(vo.inDate,0,19)}</div>
+        	</div>
+        	<div class="section">
+	        	<div class="input-group">
+	            <div>카테고리 : ${vo.inCtg}</div>
+	            <div class="input-group-append">
+		          	타이틀 : ${vo.inTitle}
+	            </div>
 	        	</div>
         	</div>
-	        <div class="section row">
-		        <div class="section col">
-							<c:set var="fNameArr" value="${fn:split(vo.inPhoto,'.')}" />
-							<c:set var="extName" value="${fn:toLowerCase(fNameArr[fn:length(fNameArr)-1])}" /> <!-- 확장자 구하기 -->
-							<c:if test="${extName == 'jpg' || extName == 'gif' || extName == 'png'}">
-								<img  src="${ctp}/images/imgData/${vo.inPhoto}" width="150px" />
-							</c:if>
-		        </div>
-		        <div class="section text-right col">
-			        <button type="button" name="memoBtn" id="memoBtn" onclick="memoBtnCk()" class="w3-button w3-indigo w3-hover-white  w3-border w3-border-indigo w3-round-xlarge" >수정</button>
-			        <button type="button" name="memoBtn" id="memoBtn" onclick="memoBtnCk()" class="w3-button w3-indigo w3-hover-white  w3-border w3-border-indigo w3-round-xlarge">삭제</button>
-		        </div>
+	        <div class="section">
+	        	스코어 : ${vo.inScore}
+        	</div>
+	        <div class="section">
+            <img id="demo" width="150" />
+            --
+            <table>
+            <tr>
+							<th>파일명</th>
+							<td>
+								<c:set var="fNames" value="${fn:split(vo.fName, '/')}"/>
+								<c:set var="fSNames" value="${fn:split(vo.fSName, '/')}"/>
+								<c:forEach var="fName" items="${fNames}" varStatus="st">
+									<a href="${ctp}/images/pds/${fSNames[st.index]}" download="${fName}" onclick="downNumCheck(${vo.idx})" >${fName}</a><br/>
+								</c:forEach>
+									(<fmt:formatNumber value="${vo.fSize/1024}" pattern="#,##0" /> KByte)
+							</td>
+						</tr>
+						</table>
+						--
+						<div>
+							<c:forEach var="file" items="${files}" varStatus="st">
+								<c:set var="fNameArr" value="${fn:split(file,'.')}" />
+								<c:set var="extName" value="${fn:toLowerCase(fNameArr[fn:length(fNameArr)-1])}" /> <!-- 확장자 구하기 -->
+								<img  src="${ctp}/images/photoView/${file}" width="50px" />
+							</c:forEach>
+						</div>
+            --
+	        </div>
+	        <div class="section text-right">
+		        <button type="button" name="memoBtn" id="memoBtn" onclick="memoBtnCk()" class="w3-button w3-indigo w3-hover-white  w3-border w3-border-indigo w3-round-xlarge">수정</button>
+		        <button type="button" name="memoBtn" id="memoBtn" onclick="memoBtnCk()" class="w3-button w3-indigo w3-hover-white  w3-border w3-border-indigo w3-round-xlarge">삭제</button>
 	        </div>
         </div>
       </c:forEach>
+        ${vo.aMid}
+			--
+			
 		</div>
 		
 		<!-- footer -->

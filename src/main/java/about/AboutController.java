@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import about.complaint.ComplaintOkCommand;
+import about.complaint.SettingsCommand;
 import about.login.LogOutCommand;
 import about.login.LoginOkCommand;
 import about.memberData.JoinBtnCheckCommand;
@@ -57,6 +59,8 @@ public class AboutController extends HttpServlet {
 			viewPage += "myPage.jsp";
 		}
 		else if(com.equals("/Settings")) { //메인 컨트롤러에서 작동//about.login
+			command = new SettingsCommand();
+			command.execute(request, response);
 			viewPage += "setting.jsp";
 		}
 		else if(com.equals("/MemberVerify")) {
@@ -85,7 +89,7 @@ public class AboutController extends HttpServlet {
 		else if(com.equals("/Scribbling")) {
 			command = new ScribblingCommand();
 			command.execute(request, response);
-			viewPage += "scribbling .jsp";
+			viewPage += "scribbling.jsp";
 		}
 		else if(com.equals("/ScribblingOk")) {
 			command = new ScribblingOkCommand();
@@ -94,6 +98,11 @@ public class AboutController extends HttpServlet {
 		}
 		else if(com.equals("/MemoAnalysis")) {
 			viewPage += "memoAnalysis.jsp";
+		}
+		else if(com.equals("/ComplaintOk")) {
+			command = new ComplaintOkCommand();
+			command.execute(request, response);
+			return;
 		}
 		
 		

@@ -35,6 +35,49 @@
 	<script>
 		'use strict';
 		
+		function complaintCheck() {
+			if(!$("input[type=radio][name=cpCtg]:checked").is(':checked')) {
+				alert("문의 유형을 선택해주세요");
+				return false;
+			}
+			if($("#complaintTxt").val().trim() == "") {
+				alert("자세한 내용을 기입해 주세요");
+				complaintForm.complaintTxt.focus();
+				return false;
+			}
+			
+			let cpCtg = complaintForm.cpCtg.value;
+			let cpContent = complaintForm.complaintTxt.value;
+			alert("cpCtg "+cpCtg);
+			alert("cpContent "+cpContent);
+			
+			let query = {
+				cpCtg : cpCtg,
+				cpContent : cpContent,
+				cpMid : '${sAmid}'
+			}
+			console.log("query",query);
+			
+			$.ajax({
+				type : "post",
+				url : "ComplaintOk.me",
+				data : query,
+				success : function (res) {
+						alert("res"+res);
+					if(res != '0') {
+						alert("문의사항을 쪽지함에 넣었습니다");
+						location.reload();
+					}
+					else {
+						alert("쪽지함이 망가져서 쪽지가 분실되었어요. 다시 적어주세요.");
+					}
+				} ,
+				error : function () {
+					alert("전송오류");
+				}
+			});
+		}
+		
 	</script>
 </head>
 <body>
@@ -74,13 +117,13 @@
 			  </div>
 			  <div class="grid-item">
 			    <div>운영진</div>
-			    <button data-toggle="modal" data-target="#myModal" class="btn btn-dark">문의</button>
+			    <button data-toggle="modal" data-target="#complaintModal" class="btn btn-dark">문의</button>
 			  </div>
 			</div>		
 		</div>
 		
 		<!-- The Modal 시작 -->
-	  <div class="modal" id="myModal">
+	  <div class="modal" id="complaintModal">
 	    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 	      <div class="modal-content">
 	      
@@ -92,28 +135,31 @@
 	        
 	        <!-- Modal body -->
 	        <div class="modal-body">
-	        	<b>문의사항을 알려주세요</b>
+	        	<b>문의하실 유형의 버튼을 누르신후 내용을 기입해주세요</b>
 	        	<hr/>
-	        	<form name="modalForm">
+	        	<form name="complaintForm">
 		        	<div>
-						    <input type="radio" name="claim" id="claim1" value="개인정보수정" />
-						    <label for="claim1">개인정보수정</label>
-						    <input type="radio" name="claim" id="claim2" value="작성메모문의" />
-						    <label for="claim2">작성메모문의</label>
-						    <input type="radio" name="name" id="claim3" value="이벤트문의" />
-						    <label for="claim3">이벤트문의</label>
-						    <input type="radio" name="claim" id="claim4" value="분석데이터" />
-						    <label for="claim4">분석데이터</label>
+						    <input type="radio" name="cpCtg" id="cpCtg1" value="개인정보수정" />
+						    <label for="cpCtg1">개인정보수정</label>
+						    <input type="radio" name="cpCtg" id="cpCtg2" value="작성메모문의" />
+						    <label for="cpCtg2">작성메모문의</label>
+						    <input type="radio" name="cpCtg" id="cpCtg3" value="이벤트문의" />
+						    <label for="cpCtg3">이벤트문의</label>
+						    <input type="radio" name="cpCtg" id="cpCtg4" value="분석데이터" />
+						    <label for="cpCtg4">분석데이터</label>
 						    <br>
-						    <input type="radio" name="claim" id="claim7" value="기타" />
-						    <label for="claim4">기타</label>
+						    <input type="radio" name="cpCtg" id="cpCtg5" value="탈퇴신청" />
+						    <label for="cpCtg5">탈퇴신청</label>
+						    <input type="radio" name="cpCtg" id="cpCtg6" value="기타" />
+						    <label for="cpCtg6">기타</label>
 							</div>
 							<hr/>
 		      		<div>
-			          <textarea rows="5" id="claimTxt" class="form-control" >자세한 내용을 기입해 주세요</textarea>
+		      			<p>자세한 내용을 기입해 주세요</p>
+			          <textarea rows="5" id="complaintTxt" name="complaintTxt" class="form-control"></textarea>
 		      		</div>
 		        	<hr/>
-							<input type="button" value="확인" onclick="claimCheck()" class="w3-button w3-white w3-hover-blue-grey w3-border w3-border-black w3-round-large form-control" />								        	
+							<input type="button" value="확인" onclick="complaintCheck()" class="w3-button w3-white w3-hover-blue-grey w3-border w3-border-black w3-round-large form-control" />								        	
 	        	</form>
 	        </div>
 	        
@@ -125,9 +171,6 @@
 	    </div>
 	  </div>
 		<!-- The Modal 끝 -->
-		
-		
-		
 		
 		<!-- footer -->
 		<div id="footer">

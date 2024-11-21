@@ -1,6 +1,7 @@
 package about.complaint;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,15 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import about.AboutInterface;
 import about.memberData.AboutMemberDAO;
-import about.memberData.AboutMemberVO;
 
-public class ComplaintOkCommand implements AboutInterface {
+public class UserComplaintOkCommand implements AboutInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cpCtg = request.getParameter("cpCtg")==null ? "" : request.getParameter("cpCtg");
 		String cpContent = request.getParameter("cpContent")==null ? "" : request.getParameter("cpContent");
 		String cpMid = request.getParameter("cpMid")==null ? "" : request.getParameter("cpMid");
+		System.out.println("cpMid:  "+cpMid);
 
 		ComplaintVO vo = new ComplaintVO();
 		ComplaintDAO dao = new ComplaintDAO();
@@ -27,14 +28,15 @@ public class ComplaintOkCommand implements AboutInterface {
 		
 		int res = dao.setUserComplaint(vo);
 		
+		System.out.println("cpCtg:  "+cpCtg);
 		if(cpCtg.equals("탈퇴신청")) {
 			AboutMemberDAO aDao = new AboutMemberDAO();
 			int res2 = aDao.setUserLevel(cpMid);
-			if(res == res2) res = 1;
+			if(res==1 && res2==1) res = 1;
 		}
 		
-		//System.out.println("resresres :  "+res);
 		response.getWriter().write(res+"");
+		
 		
 	}
 

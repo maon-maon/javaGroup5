@@ -40,16 +40,16 @@
 				alert("문의 유형을 선택해주세요");
 				return false;
 			}
-			if($("#complaintTxt").val().trim() == "") {
-				alert("자세한 내용을 기입해 주세요");
-				complaintForm.complaintTxt.focus();
-				return false;
-			}
-			
 			let cpCtg = complaintForm.cpCtg.value;
+			
+			if(cpCtg != '탈퇴신청') {
+				if($("#complaintTxt").val().trim() == "") {
+					alert("자세한 내용을 기입해 주세요");
+					complaintForm.complaintTxt.focus();
+					return false;
+				}
+			}
 			let cpContent = complaintForm.complaintTxt.value;
-			alert("cpCtg "+cpCtg);
-			alert("cpContent "+cpContent);
 			
 			let query = {
 				cpCtg : cpCtg,
@@ -60,7 +60,7 @@
 			
 			$.ajax({
 				type : "post",
-				url : "ComplaintOk.me",
+				url : "UserComplaintOk.me",
 				data : query,
 				success : function (res) {
 						alert("res"+res);
@@ -119,8 +119,15 @@
 			    <div>운영진</div>
 			    <button data-toggle="modal" data-target="#complaintModal" class="btn btn-dark">문의</button>
 			  </div>
+			  <c:if test="${vo.aLevel == 0}">
+				  <div class="grid-item">
+				    <div>관리페이지</div>
+				    <button onclick="location.href='Dashboard.me'" class="btn btn-dark">접속</button>
+				  </div>
+			  </c:if>
 			</div>		
 		</div>
+		<%-- ${vo.aMid} --%>
 		
 		<!-- The Modal 시작 -->
 	  <div class="modal" id="complaintModal">

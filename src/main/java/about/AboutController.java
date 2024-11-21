@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import about.complaint.ComplaintOkCommand;
+import about.admin.ComplaintListCommand;
+import about.admin.ComplaintMemoCommand;
+import about.admin.ComplaintUserCommand;
+import about.admin.DashboardCommand;
+import about.admin.NoticeUpdateCommand;
+import about.complaint.UserComplaintOkCommand;
 import about.complaint.SettingsCommand;
 import about.login.LogOutCommand;
 import about.login.LoginOkCommand;
@@ -84,7 +89,7 @@ public class AboutController extends HttpServlet {
 		else if(com.equals("/LogOut")) {
 			command = new LogOutCommand();
 			command.execute(request, response);
-			viewPage = "main";
+			viewPage = "/include/message.jsp";
 		}
 		else if(com.equals("/Scribbling")) {
 			command = new ScribblingCommand();
@@ -99,10 +104,35 @@ public class AboutController extends HttpServlet {
 		else if(com.equals("/MemoAnalysis")) {
 			viewPage += "memoAnalysis.jsp";
 		}
-		else if(com.equals("/ComplaintOk")) {
-			command = new ComplaintOkCommand();
+		else if(com.equals("/UserComplaintOk")) {
+			command = new UserComplaintOkCommand();
 			command.execute(request, response);
 			return;
+		}
+		else if(com.equals("/Dashboard")) {
+			command = new DashboardCommand();
+			command.execute(request, response);
+			viewPage += "dashboard.jsp";
+		}
+		else if(com.equals("/ComplaintList")) {
+			command = new ComplaintListCommand();
+			command.execute(request, response);
+			viewPage += "complaintList.jsp";
+		}
+		else if(com.equals("/ComplaintUser")) {
+			command = new ComplaintUserCommand();
+			command.execute(request, response);
+			viewPage += "complaintUser.jsp";
+		}
+		else if(com.equals("/ComplaintMemo")) {
+			command = new ComplaintMemoCommand();
+			command.execute(request, response);
+			viewPage += "complaintMemo.jsp";
+		}
+		else if(com.equals("/NoticeUpdate")) {
+			command = new NoticeUpdateCommand();
+			command.execute(request, response);
+			viewPage += "noticeUpdate.jsp";
 		}
 		
 		

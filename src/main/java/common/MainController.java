@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import about.AboutInterface;
 import about.login.LoginCommand;
 
-@WebServlet({"/MAIN", "/m","/h","/home","/H","/HOME"})
+@WebServlet({"/MAIN", "/main","/h","/home","/H","/HOME"})
 public class MainController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request , HttpServletResponse response ) throws ServletException, IOException {

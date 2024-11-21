@@ -164,7 +164,6 @@
 				<div><input type="hidden" name="inScore" id="inScore"></div>
 			</form>
 		</div>
-		
 		<!-- footer -->
 		<div id="footer">
 			<jsp:include page="/include/ft.jsp"/>

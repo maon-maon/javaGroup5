@@ -21,6 +21,14 @@
 	  	bottom: 20px;
 	  	left: 20px;
 		}
+		#main { 
+	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
+		}
+		#footer { /* 하단에 고정 */
+		    position: absolute;
+		    bottom: 0;
+		    width: 100%;
+		}
 		
 		#sidebar img {
 			margin-left: 15%;
@@ -139,7 +147,7 @@
 			</div>
 		</div>
 		<div id="back">
-		  <button onclick="location.href='Main'" class="btn btn-outline-dark">처음으로</button>
+		  <button onclick="location.href='MAIN'" class="btn btn-outline-dark">처음으로</button>
 		</div>
 	</div>
 	<!-- Sidebar -->

@@ -1,17 +1,16 @@
 	<style>
-		#sideFold, #sidebar { background-color: #E6E6FA;}
-		
-		#sidebar { display: none;}
-		
-		#main { 
-			margin-left: 7%;
+		#sidebar { 
+			background-color: #E6E6FA;
+			width: 20%;
+			display: block;
 		}
+		#main { margin-left: 20%;}
+		
 		#back {
 			position: fixed;
 	  	bottom: 20px;
 	  	left: 20px;
 		}
-		
 		#main { 
 	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
 		}
@@ -19,6 +18,19 @@
 		    bottom: 0;
 		    width: 100%;
 		}
+		#sidebar img {
+			margin-left: 15%;
+		}
+		ul {
+		  list-style: none; /* 목록에 번호나 마커를 표시하지 않음 */
+		  padding: 0;
+		  margin-left: 5%;
+		}
+		
+		li {
+		  margin-bottom: 10px;
+		}
+		
 		@media screen and (max-width: 1200px) {
 			#sidebar img {
 		    width: 70%;

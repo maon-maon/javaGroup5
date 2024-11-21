@@ -2,8 +2,8 @@ show tables;
 
 create table complaint(
 	cpIdx int not null AUTO_INCREMENT,
-	cpCtg text not null,
 	cpMid varchar(50) not null,
+	cpCtg text not null,
 	cpContent text null,
 	cpMemoIdx int ,
 	cpMemoTitle varchar(100) ,
@@ -18,3 +18,10 @@ desc complaint;
 --drop table complaint;
 
 select * from complaint;
+
+select count(*) as totRecCnt from complaint;
+
+select count(*) as totRecCnt from complaint where cpCnt>=1;
+select count(*) as totRecCnt from complaint where cpCnt=0;
+select * from complaint where cpCnt>=1 order by cpIdx desc limit 1,5;
+select * from complaint where cpCnt=0 order by cpIdx desc limit 0,5;

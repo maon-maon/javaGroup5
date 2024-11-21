@@ -19,18 +19,12 @@ public class SettingsCommand implements AboutInterface {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String aMid = (String)session.getAttribute("sAmid");
-		//System.out.println("aMid   "+aMid);
 		
-		AboutMemberDAO aDao = new AboutMemberDAO();
-		AboutMemberVO aVo = aDao.getMemberIdCheck(aMid);
+		AboutMemberDAO dao = new AboutMemberDAO();
+		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
 
-		//ScribbleDAO sDao = new ScribbleDAO();
-		//ScribbleVO sVos = sDao.getAllScribbleList();
+		request.setAttribute("vo", vo);
 		
-		//System.out.println("aVo   "+aVo);
-		//System.out.println("sVos   "+sVos);
-		request.setAttribute("aVo", aVo);
-
 	}
 
 }

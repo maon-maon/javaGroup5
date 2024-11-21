@@ -21,6 +21,19 @@
 		    padding: 20px;
 		    margin-bottom: 20px;
 		}
+		html, body {
+		    height: 100%;
+		    margin: 0;
+		}
+		#main {
+		    min-height: calc(100% - 60px); /* footer 높이를 고려하여 조절 */
+		}
+		
+		#footer {
+		    position: absolute;
+		    bottom: 0;
+		    width: 100%;
+		}
 	</style>
 	<script>
 	

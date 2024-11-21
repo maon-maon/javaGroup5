@@ -28,7 +28,7 @@
 		  <button type="button" onclick="location.href='LogOut.me'" class="w3-bar-item w3-button"><i class="fa fa-sign-out" style="font-size:36px" title="로그아웃"></i>로그아웃</button>
 		</div>
 		<div id="back">
-		  <button onclick="location.href='Main'" class="btn btn-outline-dark">처음으로</button>
+		  <button onclick="location.href='MyPage.me'" class="btn btn-outline-dark">처음으로</button>
 		</div>
 	</div>
 	<div id="sideIcon">
@@ -45,7 +45,7 @@
 		  <button type="button" onclick="location.href='Settings.me'" class="w3-bar-item w3-button"><i class="material-icons" style="font-size:36px" title="설정">settings</i></button>
 		  <button type="button" onclick="location.href='LogOut.me'" class="w3-bar-item w3-button"><i class="fa fa-sign-out" style="font-size:36px" title="로그아웃"></i></button> 
 		<div id="back">
-		  <button onclick="location.href='Main'" class="btn btn-outline-dark">처음으로</button>
+		  <button onclick="location.href='MyPage.me'" class="btn btn-outline-dark">처음으로</button>
 		</div>
 		</div>
 	</div>

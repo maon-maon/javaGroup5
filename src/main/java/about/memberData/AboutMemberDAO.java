@@ -167,7 +167,7 @@ public class AboutMemberDAO {
 	public int setUserLevel(String cpMid) {
 		int res = 0;
 		try {
-			sql = "";
+			sql = "update aboutMember set aLevel=9 where aMid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cpMid);
 			res = pstmt.executeUpdate();

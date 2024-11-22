@@ -41,8 +41,8 @@
 				return false;
 			}
 			let cpCtg = complaintForm.cpCtg.value;
-			
-			if(cpCtg != '탈퇴신청') {
+			alert("cpCtg   " +cpCtg);
+			if(cpCtg == '탈퇴신청') {
 				if($("#complaintTxt").val().trim() == "") {
 					alert("자세한 내용을 기입해 주세요");
 					complaintForm.complaintTxt.focus();
@@ -63,7 +63,6 @@
 				url : "UserComplaintOk.me",
 				data : query,
 				success : function (res) {
-						alert("res"+res);
 					if(res != '0') {
 						alert("문의사항을 쪽지함에 넣었습니다");
 						location.reload();
@@ -78,6 +77,12 @@
 			});
 		}
 		
+		function googleDriveBackup() {
+			alert("연동된 구글 계정 드라이브에 백업되었습니다.");
+		}
+		function pageModeBtn() {
+			alert("변경되었습니다.");
+		}
 	</script>
 </head>
 <body>
@@ -104,16 +109,16 @@
 	          <input type="radio" name="mode" id="light" value="light" class="btn-check" checked/><label for="light" class="form-label mr-3">밝음</label>
 	          <input type="radio" name="mode" id="dark" value="dark" class="btn-check" /><label for="dark" class="form-label">어두움</label>
 					<div class="input-group-append">
-						<button onclick="#" class="btn btn-dark">변경</button>
+						<button onclick="pageModeBtn()" class="btn btn-dark">변경</button>
 					</div>
 			  </div>
 			  <div class="grid-item">
 			    <div>구글드라이브</div>
-			    <button class="btn btn-dark">백업</button>
+			    <button onclick="googleDriveBackup()"class="btn btn-dark" >백업</button>
 			  </div>
 			  <div class="grid-item">
 			    <div>회원정보</div>
-			    <button class="btn btn-dark" onclick="location.href='MemberVerify.me'">수정</button>
+			    <button onclick="location.href='MemberVerify.me'" class="btn btn-dark" >수정</button>
 			  </div>
 			  <div class="grid-item">
 			    <div>운영진</div>

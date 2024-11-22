@@ -10,8 +10,8 @@ create table scribble (
 	inDate DATETIME DEFAULT CURRENT_TIMESTAMP,
 	inOpen VARCHAR(3) NOT NULL DEFAULT 'NO',
 	inMark VARCHAR(3) DEFAULT 'NO',
-	inCpl VARCHAR(3)  DEFAULT 'NO',
-	inCpICnt INT NULL,
+	inCpStt VARCHAR(3)  DEFAULT 'NO',
+	inCpCnt INT 0,
 	PRIMARY KEY(inIdx),
 	unique key(inTitle),
 	foreign key(inMid) references aboutmember(aMid) on update cascade
@@ -24,3 +24,15 @@ select * from scribble;
 insert into scribble values(default, 'admin', '', , , , , , , , , ,);
 
 select * from scribble where inMid = 'xxxx';
+
+select * from scribble where inOpen='YES' order by inIdx desc;
+
+select * from scribble where inCpCnt=0;
+select * from scribble where inCpCnt>0;
+select * from scribble where inCpCnt>=1;
+
+update scribble set inCpCnt=inCpCnt+1 where inIdx = 16;
+
+update scribble set inMark='YES' where inIdx = 17;
+select * from scribble where  inMark='YES';
+select * from scribble where inMark='YES'and inMid='2222' order by inIdx desc;

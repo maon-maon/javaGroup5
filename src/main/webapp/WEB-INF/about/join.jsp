@@ -25,7 +25,6 @@
 	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
 		}
 		#footer { /* 하단에 고정 */
-		    position: absolute;
 		    bottom: 0;
 		    width: 100%;
 		}
@@ -136,7 +135,7 @@
 </head>
 <body>
 	<!-- Sidebar -->
-	<div id="sidebar" class="w3-sidebar w3-bar-block  w3-card w3-animate-left" >
+	<div id="sidebar" class="w3-sidebar w3-bar-block  w3-card" >
 		<div>
 			<img src="${ctp}/images/logo/na5.png" width="150px" alt="어바웃로고">
 			<br/>

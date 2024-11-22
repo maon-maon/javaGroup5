@@ -13,7 +13,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import about.AboutInterface;
 import common.SecurityUtil;
 
-public class MemberUpdateOkCommand implements AboutInterface {
+public class MemberUpdateOkCommand2 implements AboutInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,27 +36,24 @@ public class MemberUpdateOkCommand implements AboutInterface {
 		AboutMemberDAO dao = new AboutMemberDAO();
 		vo = dao.getMemberIdCheck(aMid);
 		String tempaPwd = vo.getaPwd();
-//		String tempaNickName = vo.getaNickName();
-//		String tempaPhoto = vo.getaPhoto();
-//		String tempaAnl = vo.getaAnl();
-
-		String aPwd = (multipartRequest.getParameter("OaPwd")==null || multipartRequest.getParameter("OaPwd").equals(""))? "": multipartRequest.getParameter("OaPwd");
-		String aNickName = (multipartRequest.getParameter("OaNickName")==null || multipartRequest.getParameter("OaNickName").equals(""))? "" : multipartRequest.getParameter("OaNickName");
+		String tempaNickName = vo.getaNickName();
+		String tempaPhoto = vo.getaPhoto();
+		String tempaAnl = vo.getaAnl();
+		
+		String aPwd = (multipartRequest.getParameter("aPwd1")==null || multipartRequest.getParameter("aPwd1").equals(""))? tempaPwd : multipartRequest.getParameter("aPwd1");
+		String aNickName = (multipartRequest.getParameter("aNickName")==null || multipartRequest.getParameter("aNickName").equals(""))? tempaNickName : multipartRequest.getParameter("aNickName");
 		//String aPhoto = multipartRequest.getParameter("aPhoto")==null? "" : multipartRequest.getParameter("aPhoto");
-		String aAnl = (multipartRequest.getParameter("OaAnl")==null || multipartRequest.getParameter("OaAnl").equals(""))? "" : multipartRequest.getParameter("OaAnl");
+		String aAnl = (multipartRequest.getParameter("aAnl")==null || multipartRequest.getParameter("aAnl").equals(""))? tempaAnl : multipartRequest.getParameter("aAnl");
 		if(filesystemName==null || filesystemName.equals("")) {
-			filesystemName = "logo2.png";
+			filesystemName = tempaPhoto;
 		}
 		
+		//비밀번호 암호화
+		String salt = UUID.randomUUID().toString().substring(0,8);
 		
-		if(!tempaPwd.equals(aPwd)) {
-			//비밀번호 암호화
-			String salt = UUID.randomUUID().toString().substring(0,8);
-			
-			SecurityUtil security = new SecurityUtil();
-			aPwd = security.encryptSHA256(salt+aPwd);
-			aPwd = salt + aPwd;
-		}
+		SecurityUtil security = new SecurityUtil();
+		aPwd = security.encryptSHA256(salt+aPwd);
+		aPwd = salt + aPwd;
 		
 		vo.setaMid(aMid);
 		vo.setaPwd(aPwd);

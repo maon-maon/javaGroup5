@@ -175,6 +175,26 @@ public class ComplaintDAO {
 		return vos;
 	}
 	
+	// 공개글 신고 내용 DB에 저장
+	public int setReportComplaint(ComplaintVO vo) {
+		int res = 0;
+		try {
+			sql = "insert into complaint values(default, ?,?,?,?, default,default,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getCpMid());
+			pstmt.setString(2, vo.getCpCtg());
+			pstmt.setString(3, vo.getCpContent());
+			pstmt.setInt(4, vo.getCpMemoIdx());
+			pstmt.setInt(5, vo.getCpCnt());
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("SLQ 오류 " +e.getMessage());
+		} finally {
+			pstmtClose();
+		}
+		return res;
+	}
+	
 	
 	
 	

@@ -8,18 +8,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import about.AboutInterface;
+import about.memberData.AboutMemberDAO;
+import about.memberData.AboutMemberVO;
+import common.SearchDate_aMid;
 
-public class LogOutCommand implements AboutInterface {
+public class FindMidPwdCommand implements AboutInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String aMid = session.getAttribute("sAmid").toString();
+		String aMid = (String)session.getAttribute("sAmid");
+		//System.out.println("aMid   "+aMid);
 		
-		session.invalidate();
+		AboutMemberDAO dao = new AboutMemberDAO();
 		
-		request.setAttribute("message", aMid+"님의 메모가 다시 오시길 기다릴거에요");
-		request.setAttribute("url", "main");
+		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
+		
+		request.setAttribute("vo", vo);
+		
 
 	}
 

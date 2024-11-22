@@ -37,6 +37,7 @@
 					}
 					else {
 						alert("사용 가능한 닉네임입니다.");
+						updateForm.OaNickName.value = aNickName;
 				  	aNickNameBtnSw++;
 					}
 				} ,
@@ -67,7 +68,7 @@
 						}
 						else {
 							alert("비밀번호를 확인하였습니다.");
-							updateForm.aPwd.value = aPwd1;
+							updateForm.OaPwd.value = aPwd1;
 							aPwdBtnSw++;
 						}
 					}, 
@@ -112,17 +113,9 @@
 			let aNickName = $('#aNickName').val();
 			if(aPwd2 != "" && aPwdBtnSw == 0) alert("비밀번호 확인 버튼을 눌러주세요.");
 			else if(aNickName != "" && aNickNameBtnSw == 0) alert("닉네임 확인 버튼을 눌러주세요.");
-			else updateForm.submit();
+			else updateForm.submit(); 
 		}
 		
-		//로딩 후 적용
-		/* $(document).ready(function() {
-			let chck = '${cRememberMid}';
-			//alert("chck   " + chck);
-			if (chck === "true") {
-		    $('#rememberMid').prop('checked', true);
-			}
-		}); */
 	</script>
 </head>
 <body>
@@ -187,8 +180,10 @@
 	      <div class="text-right">
 	      	<button type="button" onclick="submitCheck()" class="btn btn-dark">수정하기</button>
 	      </div>
-	      <div><input type="hidden" name="aMid" value="${vo.aMid}"></div>
-	      <div><input type="hidden" name="aPwd"></div>
+	      <div><input type="hidden" name="OaMid" value="${vo.aMid}"></div>
+	      <div><input type="hidden" name="OaPwd" value="${vo.aPwd}"></div>
+	      <div><input type="hidden" name="OaNickName" value="${vo.aNickName}"></div>
+	      <div><input type="hidden" name="OaAnl" value="${vo.aAnl}"></div>
 			</form>
 		</div>
 		

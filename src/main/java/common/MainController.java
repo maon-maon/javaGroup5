@@ -17,18 +17,9 @@ import about.login.LoginCommand;
 public class MainController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request , HttpServletResponse response ) throws ServletException, IOException {
-		AboutInterface command = new LoginCommand();
-		command.execute(request, response);
 		
 		String viewPage = "";
 		
-//		HttpSession session = request.getSession();
-//		String sLogin = (String)session.getAttribute("sLogin");
-//		if(sLogin.equals("on")) {
-//			viewPage = "MyPage.me";
-//		}
-//		else {
-//		}
 		viewPage = "/WEB-INF/main/main.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

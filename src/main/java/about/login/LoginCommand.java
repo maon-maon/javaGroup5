@@ -22,6 +22,7 @@ public class LoginCommand implements AboutInterface {
 					request.setAttribute("cAmid", cookies[i].getValue());
 					//System.out.println("cookies[i].getValue() : "+cookies[i].getValue() );
 					request.setAttribute("cRememberMid", "true");
+					request.setAttribute("cLogin", "on");
 					break;
 				}
 			}

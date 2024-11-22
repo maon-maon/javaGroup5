@@ -70,7 +70,7 @@ public class ScribblingOkCommand implements AboutInterface {
 		
 		if(res != 0) {
 			request.setAttribute("message", "쪽지가 수첩에 들어갔습니다.");
-			request.setAttribute("url", "Scribbling.me");
+			request.setAttribute("url", "Home.me");
 		}
 		else {
 			request.setAttribute("message", "쪽지가 바람에 날라갔어요. 다시 작성해주세요");

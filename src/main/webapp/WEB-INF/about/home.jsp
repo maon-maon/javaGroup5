@@ -8,76 +8,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>메모수첩myPage.jsp</title>
+  <title>Home.jsp</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
-  <jsp:include page="/include/weekSchedule.jsp"/>
   <jsp:include page="/include/mainContent.jsp"/>
+  <style>
+		#td1,#td8,#td15,#td22,#td29,#td36 {color: red}
+		#td7,#td14,#td21,#td28,#td35 {color: blue}
+		
+		.today {
+			background: #E6E6FA;
+			color: #333;
+			font-weight: bolder;
+		}
+		.container table {
+    	margin: 0 auto;
+     	width: 80%;
+     	height: 250px;
+    }
+		table tr th {background-color: #E6E6FA;}
+		
+  </style>
   <script>
 	'use strict';
-	// 책갈피 처리
-	function bookmarkBtn(inIdx) {
-		$.ajax({
-			type : "post",
-			url : "Bookmarking.me" ,
-			data : {inIdx : inIdx},
-			success : function(res) {
-				if(res != "0") {
-					alert("책갈피를 끼웠습니다.");
-					location.reload();
+		// 책갈피 처리
+		function bookmarkBtn(inIdx) {
+			$.ajax({
+				type : "post",
+				url : "Bookmarking.me" ,
+				data : {inIdx : inIdx},
+				success : function(res) {
+					if(res != "0") {
+						alert("책갈피를 끼웠습니다.");
+						location.reload();
+					}
+					else {
+						alert("페이지를 놓쳤어요. 다시 책갈피를 끼워주세요");
+					}
+				} ,
+				error: function() {
+					alert("전송오류");
 				}
-				else {
-					alert("페이지를 놓쳤어요. 다시 책갈피를 끼워주세요");
+			});
+		}
+		//공개처리
+		function memoOpenBtn(inIdx) {
+			$.ajax({
+				type : "post",
+				url : "OpenMemo.me" ,
+				data : {inIdx : inIdx},
+				success : function(res) {
+					if(res != "0") {
+						alert("빈 공간에 쪽지가 붙었어요.");
+						location.reload();
+					}
+					else {
+						alert("쪽지가 떨어졌어요. 다시 붙여주세요.");
+					}
+				} ,
+				error: function() {
+					alert("전송오류");
 				}
-			} ,
-			error: function() {
-				alert("전송오류");
-			}
-		});
-	}
-	//공개처리
-	function memoOpenBtn(inIdx) {
-		$.ajax({
-			type : "post",
-			url : "OpenMemo.me" ,
-			data : {inIdx : inIdx},
-			success : function(res) {
-				if(res != "0") {
-					alert("빈 공간에 쪽지가 붙었어요.");
-					location.reload();
+			});
+		}
+		//삭제처리
+		function deleteBtn(inIdx) {
+			$.ajax({
+				type : "post",
+				url : "DeleteMemo.me" ,
+				data : {inIdx : inIdx},
+				success : function(res) {
+					if(res != "0") {
+						alert("쪽지를 지웠어요.");
+						location.reload();
+					}
+					else {
+						alert("쪽지가 아직 남아있어요. 다시 지워주세요.");
+					}
+				} ,
+				error: function() {
+					alert("전송오류");
 				}
-				else {
-					alert("쪽지가 떨어졌어요. 다시 붙여주세요.");
-				}
-			} ,
-			error: function() {
-				alert("전송오류");
-			}
-		});
-	}
-	//삭제처리
-	function deleteBtn(inIdx) {
-		$.ajax({
-			type : "post",
-			url : "DeleteMemo.me" ,
-			data : {inIdx : inIdx},
-			success : function(res) {
-				if(res != "0") {
-					alert("쪽지를 지웠어요.");
-					location.reload();
-				}
-				else {
-					alert("쪽지가 아직 남아있어요. 다시 지워주세요.");
-				}
-			} ,
-			error: function() {
-				alert("전송오류");
-			}
-		});
-	}
-	</script>
+			});
+		}
+</script>
 </head>
 <body>
 	<!-- Sidebar -->
@@ -92,9 +108,19 @@
 		
 		<!-- 본문 내용 -->
 		<div class="container">
-			<!-- 주간캘린더 -->
+			<!-- 캘린더 -->
 				<div class="text-center">
-					<table>
+					<button type="button" onclick="location.href='Calendar.st?yy=${yy-1}&mm=${mm}'" class="w3-button w3-indigo btn-sm" title="이전년도">◁</button>
+					<button type="button" onclick="location.href='Calendar.st?yy=${yy}&mm=${mm-1}'" class="w3-button w3-indigo btn-sm" title="이전월">◀</button>
+					<font size="5">${yy}년 ${mm+1}월</font>
+					<button type="button" onclick="location.href='Calendar.st?yy=${yy}&mm=${mm+1}'" class="w3-button w3-indigo btn-sm" title="다음월">▶</button>
+					<button type="button" onclick="location.href='Calendar.st?yy=${yy+1}&mm=${mm}'" class="w3-button w3-indigo btn-sm" title="다음년도">▷</button>
+				</div>
+				<div style="margin-left: 15%">
+					<button type="button" onclick="location.href='Home.me'" class="w3-button w3-indigo btn-sm" title="오늘날짜">오늘</button>
+				</div>
+				<div class="text-center">
+					<table class="table table-bordered" >
 						<tr >
 							<th style="width: 14%; vertical-align: middle; color: #f00;">일</th>
 							<th style="width: 14%; vertical-align: middle">월</th>
@@ -105,22 +131,28 @@
 							<th style="width: 14%; vertical-align: middle; color: #00f;">토</th>
 						</tr>
 						<tr>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd}">background-color: #E6E6FA;</c:if> color: #f00;">${dd}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+1}">background-color: #E6E6FA;</c:if>" >${dd+1}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+2}">background-color: #E6E6FA;</c:if>" >${dd+2}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+3}">background-color: #E6E6FA;</c:if>" >${dd+3}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+4}">background-color: #E6E6FA;</c:if>" >${dd+4}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+5}">background-color: #E6E6FA;</c:if>" >${dd+5}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+6}">background-color: #E6E6FA; </c:if>  color: #00f;">${dd+6}</td>
+							<!-- 날짜 출력 -->
+							<c:forEach begin="1" end="${startWeek - 1}">
+								<td>&nbsp;</td>
+							</c:forEach>
+							<c:set var="cell" value="${startWeek}" /> <!-- 셀의 시작값을 담아서 줄바꾸기에 사용 -->
+							<c:forEach begin="1" end="${lastDay}" varStatus="st">
+								<c:set var="todaySw" value="${toYear==yy && toMonth==mm && toDay==st.count ? 1 : 0}"/>
+								<td id="td${cell}" ${todaySw==1 ? 'class=today' : ''}>${st.count}</td>
+								<c:if test="${cell % 7 == 0}"></tr><tr></c:if>
+								<c:set var="cell" value="${cell + 1}" />
+							</c:forEach>
 						</tr>
 					</table>	
 				</div>
 				
 			<!-- 최근 메모 출력 -->
 			<div>MemoList</div>
+			--
 			<c:forEach var="vo" items="${vos}" varStatus="st">
       	<div class="section-BG">
         	<div class="section">
+	      		<!-- -- -->
 	        	<div class="section">
 	        		<span class="row mb-2">
 	        			<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block col-4">날짜</button>
@@ -136,6 +168,7 @@
 	        		</span>
 	        	</div>
 		        <div class="section_sc">
+		        	<%-- 스코어 : ${vo.inScore} --%>
         			<button class="w3-button w3-white w3-hover-white w3-border w3-border-indigo w3-block">
 			        	<div id="sc" class="text-center">
 				        	<c:if test="${vo.inScore == 1}"><img src="${ctp}/images/sc/sc1.png"></c:if>
@@ -169,7 +202,7 @@
         </div>
       </c:forEach>
 		</div>
-				
+		
 		<!-- footer -->
 		<div id="footer">
 			<jsp:include page="/include/ft.jsp"/>

@@ -26,7 +26,7 @@
 		</div>
 		<div id="back">
 		  <button onclick="location.href='Dashboard.me'" class="btn btn-outline-dark">관리자 메인</button><br>
-		  <button onclick="location.href='MyPage.me'" class="btn btn-outline-dark">처음으로</button>
+		  <button onclick="location.href='Home.me'" class="btn btn-outline-dark">처음으로</button>
 		</div>
 	</div>
 	<!-- Sidebar -->

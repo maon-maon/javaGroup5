@@ -33,11 +33,8 @@
 	</style>
 	<script>
 		'use strict';
-		let sLogin = '${sLogin}'
-		if(${sLogin == 'on') {
-			alert("on");
-		}
 		
+		if('${message}' != "") alert("${message}");
 		
 		//로그인시 적용
 		$(document).ready(function() {

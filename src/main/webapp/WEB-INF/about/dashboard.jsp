@@ -21,12 +21,13 @@
       width: 100%;
       margin: 0 auto;
     }
-    table tr th {background-color: #E6E6FA;}
     .container table {
     	margin: 0 auto;
      	width: 80%;
      	height: 250px;
     }
+    table tr th {background-color: #E6E6FA;}
+    
 		#td1,#td8,#td15,#td22,#td29,#td36 {color: red}
 		#td7,#td14,#td21,#td28,#td35 {color: blue}
 		

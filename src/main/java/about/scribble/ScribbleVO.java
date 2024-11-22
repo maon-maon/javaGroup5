@@ -10,8 +10,8 @@ public class ScribbleVO {
 	private String inDate;
 	private String inOpen;
 	private String inMark;
-	private String inCpl;
-	private int inCpICnt;
+	private String inCpStt;
+	private int inCpCnt;
 
 	public int getInIdx() {
 		return inIdx;
@@ -85,27 +85,27 @@ public class ScribbleVO {
 		this.inMark = inMark;
 	}
 
-	public String getInCpl() {
-		return inCpl;
+	public String getInCpStt() {
+		return inCpStt;
 	}
 
-	public void setInCpl(String inCpl) {
-		this.inCpl = inCpl;
+	public void setInCpStt(String inCpStt) {
+		this.inCpStt = inCpStt;
 	}
 
-	public int getInCpICnt() {
-		return inCpICnt;
+	public int getInCpCnt() {
+		return inCpCnt;
 	}
 
-	public void setInCpICnt(int inCpICnt) {
-		this.inCpICnt = inCpICnt;
+	public void setInCpCnt(int inCpCnt) {
+		this.inCpCnt = inCpCnt;
 	}
 
 	@Override
 	public String toString() {
 		return "ScribbleVO [inIdx=" + inIdx + ", inMid=" + inMid + ", inTitle=" + inTitle + ", inScore=" + inScore
 				+ ", inCtg=" + inCtg + ", inPhoto=" + inPhoto + ", inDate=" + inDate + ", inOpen=" + inOpen + ", inMark="
-				+ inMark + ", inCpl=" + inCpl + ", inCpICnt=" + inCpICnt + "]";
+				+ inMark + ", inCpStt=" + inCpStt + ", inCpCnt=" + inCpCnt + "]";
 	}
 
 }

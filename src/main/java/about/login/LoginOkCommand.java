@@ -22,23 +22,17 @@ public class LoginOkCommand implements AboutInterface {
 		String aMid = request.getParameter("aMid")==null ? "" : request.getParameter("aMid");
 		String aPwd = request.getParameter("aPwd")==null ? "" : request.getParameter("aPwd");
 		String rememberMid = request.getParameter("rememberMid")==null ? "false" : "true";
-		//System.out.println("aPwd: " + aPwd);
 		
 		AboutMemberDAO dao = new AboutMemberDAO();
 		
 		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
-		//System.out.println("vo.getaPwd(): " + vo.getaPwd());
 		
 		String salt = vo.getaPwd().substring(0,8);
-		//System.out.println("salt입력 : " + salt);
 		
 		SecurityUtil security = new SecurityUtil();
 		aPwd = (security.encryptSHA256(salt+aPwd));
-		//System.out.println("security aPwd: "+aPwd);
-		//System.out.println("vo.getaPwd().substring(8) : " + vo.getaPwd().substring(8));
 		
 		if(!vo.getaPwd().substring(8).equals(aPwd)) {
-		//if(!aPwd.equals(vo.getaPwd())) {
 			request.setAttribute("message", "입력하신 회원정보가 없습니다. \\n다시 확인하여 주시거나, 아이디/비밀번호를 찾기를 이용해주세요.");
 			request.setAttribute("url", "Main");
 			return;
@@ -47,14 +41,17 @@ public class LoginOkCommand implements AboutInterface {
 		// 쿠키 저장 처리
 		Cookie cookieAmid = new Cookie("cAmid", aMid);
 		Cookie cookieRememberMid = new Cookie("cRememberMid", rememberMid);
+		Cookie cookieLogin = new Cookie("cLogin", "on");
 		cookieAmid.setPath("/");
 		if(rememberMid.equals("true")) {
 			cookieAmid.setMaxAge(60*60*24*7);
 			cookieRememberMid.setMaxAge(60*60*24*7);
+			cookieLogin.setMaxAge(60*60*24*7);
 		}
 		else {
 			cookieAmid.setMaxAge(0);
 			cookieRememberMid.setMaxAge(0);
+			cookieLogin.setMaxAge(0);
 		}
 		response.addCookie(cookieAmid);
 		response.addCookie(cookieRememberMid);
@@ -80,6 +77,6 @@ public class LoginOkCommand implements AboutInterface {
 		}
 		
 		request.setAttribute("message", aMid+"님 새로운 쪽지를 남겨주세요");
-		request.setAttribute("url", "MyPage.me");
+		request.setAttribute("url", "Home.me");
 	}
 }

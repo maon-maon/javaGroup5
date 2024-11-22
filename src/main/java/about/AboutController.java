@@ -15,17 +15,28 @@ import about.admin.ComplaintUserCommand;
 import about.admin.DashboardCommand;
 import about.admin.NoticeUpdateCommand;
 import about.complaint.UserComplaintOkCommand;
+import about.complaint.ReportComplaintOkCommand;
 import about.complaint.SettingsCommand;
+import about.login.FindMidPwdCommand;
+import about.login.FindMidPwdOkCommand;
 import about.login.LogOutCommand;
+import about.login.LoginCommand;
 import about.login.LoginOkCommand;
 import about.memberData.JoinBtnCheckCommand;
 import about.memberData.JoinOkCommand;
 import about.memberData.MemberUpdateCommand;
 import about.memberData.MemberUpdateOkCommand;
 import about.memberData.PwdVerifyCheckCommand;
+import about.scribble.BookMarkCommand;
+import about.scribble.BookmarkingCommand;
+import about.scribble.DeleteMemoCommand;
+import about.scribble.HomeCommand;
 import about.scribble.MyPageCommand;
+import about.scribble.OpenMemoCommand;
 import about.scribble.ScribblingCommand;
 import about.scribble.ScribblingOkCommand;
+import about.scribble.StrangersMemoCommand;
+import about.scribble.modifyMemoCommand;
 
 @SuppressWarnings("serial")
 @WebServlet("*.me")
@@ -37,10 +48,13 @@ public class AboutController extends HttpServlet {
 		
 		String com = request.getRequestURI();
 		com = com.substring(com.lastIndexOf("/"),com.lastIndexOf("."));
-		//System.out.println("com.substr    "+com);
 		
-		
-		if(com.equals("/Join")) {
+		if(com.equals("/Main")) {
+			command = new LoginCommand();
+			command.execute(request, response);
+			viewPage += "main.jsp";
+		}
+		else if(com.equals("/Join")) {
 			viewPage += "join.jsp";
 		}
 		else if(com.equals("/JoinBtnCheck")) {
@@ -57,6 +71,11 @@ public class AboutController extends HttpServlet {
 			command = new LoginOkCommand(); //about.login
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/Home")) {
+			command = new HomeCommand();
+			command.execute(request, response);
+			viewPage += "home.jsp";
 		}
 		else if(com.equals("/MyPage")) {
 			command = new MyPageCommand();
@@ -101,6 +120,11 @@ public class AboutController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
 		}
+		else if(com.equals("/MeAnalysis")) {
+			command = new ScribblingCommand();
+			command.execute(request, response);
+			viewPage += "meAnlysis.jsp";
+		}
 		else if(com.equals("/MemoAnalysis")) {
 			viewPage += "memoAnalysis.jsp";
 		}
@@ -134,15 +158,52 @@ public class AboutController extends HttpServlet {
 			command.execute(request, response);
 			viewPage += "noticeUpdate.jsp";
 		}
-		
-		
-		
-		/*
-		else if(com.equals("/FindMidPwd.me")) { //아이디/비번찾기
-			//command = new FindMidPwd.meCommand(); //about.memberData
+		else if(com.equals("/FindMidPwd")) { //아이디/비번찾기
+			//command = new FindMidPwdCommand();
+			//command.execute(request, response);
+			viewPage += "findMidPwd.jsp";
+		} 
+		else if(com.equals("/FindMidPwdOk")) {
+			command = new FindMidPwdOkCommand();
 			command.execute(request, response);
-			viewPage += "";
-		} */
+			viewPage = "main";
+		} 
+		else if(com.equals("/StrangersMemo")) { 
+			command = new StrangersMemoCommand();
+			command.execute(request, response);
+			viewPage += "strangersMemo.jsp";
+		} 
+		else if(com.equals("/ReportComplaintOk")) {
+			command = new ReportComplaintOkCommand();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/Bookmarking")) {
+			command = new BookmarkingCommand();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/BookMark")) { 
+			command = new BookMarkCommand();
+			command.execute(request, response);
+			viewPage += "bookMark.jsp";
+		} 
+		else if(com.equals("/OpenMemo")) {
+			command = new OpenMemoCommand();
+			command.execute(request, response);
+			return;
+		}
+//		else if(com.equals("/modifyMemo")) {
+//			command = new modifyMemoCommand();
+//			command.execute(request, response);
+//			viewPage += "modifyMemo.jsp";
+//		}
+		else if(com.equals("/DeleteMemo")) {
+			command = new DeleteMemoCommand();
+			command.execute(request, response);
+			return;
+		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

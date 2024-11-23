@@ -15,8 +15,9 @@
 	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
 		}
 		#footer { /* 하단에 고정 */
-		    bottom: 0;
-		    width: 100%;
+			position: fixed ;
+	    bottom: 0;
+	    width: 100%;
 		}
 		#sidebar img {
 			margin-left: 15%;

@@ -16,7 +16,6 @@ public class PwdVerifyCheckCommand implements AboutInterface {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String aPwd = request.getParameter("aPwd")==null ? "" : request.getParameter("aPwd");
-		//System.out.println("aPwd   "+aPwd);
 		HttpSession session = request.getSession();
 		String aMid = (String)session.getAttribute("sAmid");
 		

@@ -12,52 +12,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
-  <style>
-      /* 기본 스타일 설정 */
-      body {
-          font-family: sans-serif;
-      }
-
-      .container {
-          width: 80%;
-          margin: 0 auto;
-      }
-
-      .section {
-          border: 1px solid #ccc;
-          padding: 10px;
-          margin-bottom: 20px;
-      }
-
-      .number-buttons {
-          display: flex;
-          justify-content: space-around;
-      }
-
-      .number-button {
-          width: 20px;
-          height: 20px;
-          text-align: center;
-          line-height: 20px;
-          border: 1px solid #ccc;
-      }
-  </style>
+  <jsp:include page="/include/mainContent2.jsp"/>
   <script>
   'use strict';
-		let prevSelectedBtnId = null; // 이전에 선택된 버튼의 ID를 저장할 변수
+  
+		let prevSelectedBtnId = null;
 		
 		function scBtn(flag) {
 	    if (flag) {
-        //alert("flag: " + flag);
-        // 이전에 선택된 버튼의 스타일 초기화
         if (prevSelectedBtnId) {
         	$("#" + prevSelectedBtnId).css('background-color', 'white');
         }
-        // 현재 선택된 버튼의 스타일 변경
         let currentBtnId = "scBtn" + flag;
         $("#" + currentBtnId).css('background-color', '#9D9DEA');
         $("#inScore").val(flag);
-        // 현재 선택된 버튼의 ID를 저장
         prevSelectedBtnId = currentBtnId;
 	    }
 		} 
@@ -93,7 +61,6 @@
 		
 		// 폼 전송전 처리
 		function memoBtnCk() {
-			//alert("memoBtn: ");
 			let ctg = $("#ctg").val();
 			let title = $("#title").val();
       let inScore = $("#inScore").val();

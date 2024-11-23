@@ -18,24 +18,17 @@ public class ScribblingCommand implements AboutInterface {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String aMid = (String)session.getAttribute("sAmid");
-		//System.out.println("aMid   "+aMid);
 		
 		AboutMemberDAO dao = new AboutMemberDAO();
 		
 		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
-		//System.out.println("날짜 "+vo.getaVisitD());
 		
 		LocalDateTime date = LocalDateTime.now();
 		String today = date.toString().substring(0, 10);
 		String yesterday = date.minusHours(24).toString().substring(0, 19).replace("T", " ");
-		//System.out.println("BoardInputOkComman today: "+today);
-		//System.out.println("BoardInputOkComman yesterday: "+yesterday);
 		
 		request.setAttribute("today", today); 
 		request.setAttribute("yesterday", yesterday); 
-		//HttpSession session = request.getSession();
-		//session.setAttribute("sToday", today);
-		
 		
 		request.setAttribute("vo", vo);
 

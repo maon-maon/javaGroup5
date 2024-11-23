@@ -98,7 +98,7 @@ public class ScribbleDAO {
 		return null;
 	}
 	
-	// open설정+오늘 DB만 출력
+	// 공개설정+오늘? DB만 출력
 	public ArrayList<ScribbleVO> getOpenScribbleList() {
 		ArrayList<ScribbleVO> vos = new ArrayList<ScribbleVO>();
 		try {
@@ -177,7 +177,7 @@ public class ScribbleDAO {
 		return res;
 	}
 	
-	//책갈피 메모민 출력
+	//책갈피 쪽지만 출력
 	public ArrayList<ScribbleVO> getBookMarkList(String sAmid) {
 		ArrayList<ScribbleVO> vos = new ArrayList<ScribbleVO>();
 		try {
@@ -209,7 +209,7 @@ public class ScribbleDAO {
 		return vos;
 	}
 	
-	//메모삭제하기
+	//쪽지삭제하기
 	public int setDeleteMemo(int inIdx) {
 		int res = 0;
 		try {

@@ -93,31 +93,30 @@
 		<!-- 본문 내용 -->
 		<div class="container">
 			<!-- 주간캘린더 -->
-				<div class="text-center">
-					<table>
-						<tr >
-							<th style="width: 14%; vertical-align: middle; color: #f00;">일</th>
-							<th style="width: 14%; vertical-align: middle">월</th>
-							<th style="width: 14%; vertical-align: middle">화</th>
-							<th style="width: 14%; vertical-align: middle">수</th>
-							<th style="width: 14%; vertical-align: middle">목</th>
-							<th style="width: 14%; vertical-align: middle">금</th>
-							<th style="width: 14%; vertical-align: middle; color: #00f;">토</th>
-						</tr>
-						<tr>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd}">background-color: #E6E6FA;</c:if> color: #f00;">${dd}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+1}">background-color: #E6E6FA;</c:if>" >${dd+1}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+2}">background-color: #E6E6FA;</c:if>" >${dd+2}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+3}">background-color: #E6E6FA;</c:if>" >${dd+3}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+4}">background-color: #E6E6FA;</c:if>" >${dd+4}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+5}">background-color: #E6E6FA;</c:if>" >${dd+5}</td>
-							<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+6}">background-color: #E6E6FA; </c:if>  color: #00f;">${dd+6}</td>
-						</tr>
-					</table>	
-				</div>
-				
+			<div class="text-center">
+				<table>
+					<tr >
+						<th style="width: 14%; vertical-align: middle; color: #f00;">일</th>
+						<th style="width: 14%; vertical-align: middle">월</th>
+						<th style="width: 14%; vertical-align: middle">화</th>
+						<th style="width: 14%; vertical-align: middle">수</th>
+						<th style="width: 14%; vertical-align: middle">목</th>
+						<th style="width: 14%; vertical-align: middle">금</th>
+						<th style="width: 14%; vertical-align: middle; color: #00f;">토</th>
+					</tr>
+					<tr>
+						<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd}">background-color: #E6E6FA;</c:if> color: #f00;">${dd}</td>
+						<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+1}">background-color: #E6E6FA;</c:if>" >${dd+1}</td>
+						<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+2}">background-color: #E6E6FA;</c:if>" >${dd+2}</td>
+						<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+3}">background-color: #E6E6FA;</c:if>" >${dd+3}</td>
+						<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+4}">background-color: #E6E6FA;</c:if>" >${dd+4}</td>
+						<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+5}">background-color: #E6E6FA;</c:if>" >${dd+5}</td>
+						<td style="width: 14%; vertical-align: middle; <c:if test="${today == dd+6}">background-color: #E6E6FA; </c:if>  color: #00f;">${dd+6}</td>
+					</tr>
+				</table>	
+			</div>
+			<h4 class="text-center">책갈피가 꽂힌 메모</h4>
 			<!-- 최근 메모 출력 -->
-			<div>책갈피가 꽂힌 메모</div>
 			<c:forEach var="vo" items="${vos}" varStatus="st">
       	<div class="section-BG">
         	<div class="section">

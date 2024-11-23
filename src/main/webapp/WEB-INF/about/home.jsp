@@ -147,8 +147,7 @@
 				</div>
 				
 			<!-- 최근 메모 출력 -->
-			<div>MemoList</div>
-			--
+			
 			<c:forEach var="vo" items="${vos}" varStatus="st">
       	<div class="section-BG">
         	<div class="section">
@@ -192,10 +191,14 @@
 								</c:if>
 			        </div>
 			        <div class="text-right mr-2">
-				        <button type="button" name="bookmark" id="bookmark" onclick="bookmarkBtn(${vo.inIdx})" class="w3-button w3-brown w3-hover-white  w3-border w3-border-indigo w3-round-xlarge" >책갈피</button>
-				        <button type="button" name="memoOpen" id="memoOpen" onclick="memoOpenBtn(${vo.inIdx})" class="w3-button w3-green w3-hover-white  w3-border w3-border-indigo w3-round-xlarge" >쪽지공개</button>
-				        <button type="button" name="modify" id="modify" onclick="modifyBtn()" class="w3-button w3-indigo w3-hover-white  w3-border w3-border-indigo w3-round-xlarge" >수정</button>
-				        <button type="button" name="delete" id="delete" onclick="deleteBtn(${vo.inIdx})" class="w3-button w3-deep-purple w3-hover-white  w3-border w3-border-indigo w3-round-xlarge">삭제</button>
+				        <button type="button" name="bookmark" id="bookmark" onclick="bookmarkBtn(${vo.inIdx})" 
+				        	class="w3-button w3-brown w3-hover-white  w3-border w3-border-indigo w3-round-xlarge" >책갈피</button>
+				        <button type="button" name="memoOpen" id="memoOpen" onclick="memoOpenBtn(${vo.inIdx})" 
+				        	class="w3-button w3-green w3-hover-white  w3-border w3-border-indigo w3-round-xlarge" >쪽지공개</button>
+				        <button type="button" name="modify" id="modify" onclick="modifyBtn()" 
+				        	class="w3-button w3-indigo w3-hover-white  w3-border w3-border-indigo w3-round-xlarge" >수정</button>
+				        <button type="button" name="delete" id="delete" onclick="deleteBtn(${vo.inIdx})" 
+				        	class="w3-button w3-deep-purple w3-hover-white  w3-border w3-border-indigo w3-round-xlarge">삭제</button>
 			        </div>
 	        	</div>
 	        </div>

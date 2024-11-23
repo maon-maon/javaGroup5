@@ -3,6 +3,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <div class="jumbotron text-center" 
-	style="margin-bottom:0; margin:0px; line-height: 30px; padding-top: 40px; height: 50px;" >
+	style="margin-bottom:0; margin:0px; line-height: 30px; padding-top: 40px; height: 50px; background-color: #E6E6FA;" >
   <p>{About_Me}로고</p>
 </div>

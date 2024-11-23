@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctp" value="${pageContext.request.contextPath}"/>
-<div class="jumbotron text-center" style="margin-bottom:0; ">
+<div class="" style="text-align:center; margin-bottom:0; height: 70px; padding-top: 10px; background-color: #E6E6FA;">
   <div>
     <a href="#">AboutMe 소개</a> /
     <a href="#">이용약관</a> /

@@ -56,8 +56,6 @@
   	let aMidbtn = 0;
   	let aPwdbtn = 0;
   	
-  	// 아이디/비밀번호/닉네임 정규식
-  	
 		
 		// 아이디 중복체크 확인
 	  function aMidCheck() {
@@ -175,9 +173,6 @@
        	</div>
 	      
 	      <div class="mb-1">
-	        <!-- <label for="aPwd" class="form-label">비밀번호</label>
-	        <div ><input type="password" name="aPwd" id="aPwd" placeholder="비밀번호를 입력하세요" class="form-control" required /></div>
-					-- -->
 		      <label for="aPwd" class="form-label">비밀번호</label>
 		      <input type="password" name="aPwd" id="aPwd" placeholder="비밀번호를 입력해주세요" class="form-control" />
 	       	<div class=" input-group mb-1">
@@ -185,7 +180,6 @@
 	       	</div>
 	      </div>
 	      
-	      <!-- 중복체크 -->
 	      <div class="mb-1">
 	        <label for="aNickName" class="form-label">닉네임</label>
         	<div class="input-group mb-1">

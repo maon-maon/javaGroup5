@@ -9,7 +9,6 @@
 					<button class="w3-bar-item w3-button w3-large" onclick="sideClose()">
 						<img src="${ctp}/images/logo/na5.png" width="100px" alt="어바웃로고">
 					</button>
-					<div class="input-group-append"><img src="" alt="프로필이미지"></div>
 				</div>
 			</div>
 			<br/>

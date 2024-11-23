@@ -9,9 +9,6 @@
    <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
-  <style>
-  	
-	</style>
 	<script>
 	 'use strict'
 	 
@@ -40,19 +37,6 @@
 				} 
 			});
 		}
-	 
-		/* function enterkey() {
-			let aPwd = aPwdChangeForm.aPwd.value;
-			if(aPwd == "") {
-				alert("비밀번호를 입력해주세요");
-				return false;
-			}
-			$('#aPwd').keydown(function(e) {
-				if(e.keyCode == 13) {
-					$('#aMidBtn').click();
-				}
-			});
-		} */
 	</script>
 </head>
 <body>

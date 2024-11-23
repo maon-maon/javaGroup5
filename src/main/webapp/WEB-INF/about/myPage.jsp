@@ -117,7 +117,6 @@
 				</div>
 				
 			<!-- 최근 메모 출력 -->
-			<div>MemoList</div>
 			<c:forEach var="vo" items="${vos}" varStatus="st">
       	<div class="section-BG">
         	<div class="section">

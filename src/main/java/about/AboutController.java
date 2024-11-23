@@ -65,7 +65,7 @@ public class AboutController extends HttpServlet {
 		else if(com.equals("/JoinOk")) {
 			command = new JoinOkCommand(); //about.memberData
 			command.execute(request, response);
-			viewPage = "main";
+			viewPage = "Main.me";
 		}
 		else if(com.equals("/LoginOk")) {
 			command = new LoginOkCommand(); //about.login

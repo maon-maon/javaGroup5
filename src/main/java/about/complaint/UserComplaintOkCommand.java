@@ -17,7 +17,6 @@ public class UserComplaintOkCommand implements AboutInterface {
 		String cpCtg = request.getParameter("cpCtg")==null ? "" : request.getParameter("cpCtg");
 		String cpContent = request.getParameter("cpContent")==null ? "" : request.getParameter("cpContent");
 		String cpMid = request.getParameter("cpMid")==null ? "" : request.getParameter("cpMid");
-		System.out.println("cpMid:  "+cpMid);
 
 		ComplaintVO vo = new ComplaintVO();
 		ComplaintDAO dao = new ComplaintDAO();
@@ -28,7 +27,6 @@ public class UserComplaintOkCommand implements AboutInterface {
 		
 		int res = dao.setUserComplaint(vo);
 		
-		System.out.println("cpCtg:  "+cpCtg);
 		if(cpCtg.equals("탈퇴신청")) {
 			AboutMemberDAO aDao = new AboutMemberDAO();
 			int res2 = aDao.setUserLevel(cpMid);

@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
   <title>{About_Me}.Main</title>
   <jsp:include page="/include/bs4.jsp"/>
+  <jsp:include page="/include/sidebarStyle.jsp"/>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <style>
   	body {
@@ -29,17 +30,23 @@
 		}
 		form {
 			width: 100%;
-		}		
+		}	
+		#main { 
+	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
+		}
+		#footer { /* 하단에 고정 */
+			position: absolute;
+	    bottom: 0;
+	    width: 100%;
+	   	right:90px;
+		}
 	</style>
 	<script>
 		'use strict';
 		
-		if('${message}' != "") alert("${message}");
-		
 		//로그인시 적용
 		$(document).ready(function() {
 			let chck = '${cRememberMid}';
-			//alert("chck   " + chck);
 			if (chck === "true") {
 		    $('#rememberMid').prop('checked', true);
 			}
@@ -61,7 +68,6 @@
 		function loginCheck() {
 			let aMid = document.getElementById("aMid").value;
 			let aPwd = document.getElementById("aPwd").value;
-			//alert("let aMid = aMid    "+aMid);
 			
 			if(aMid == "") {
 				alert("아이디를 입력하세요");
@@ -72,8 +78,6 @@
 				$("#aPwd").focus();
 			}
 			else  {
-				//location.href="LoginOk.me";
-				//loginForm.submit();
 				$("#loginForm").submit();
 			}
 		}

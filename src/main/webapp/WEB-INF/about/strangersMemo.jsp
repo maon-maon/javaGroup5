@@ -14,37 +14,7 @@
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
   <jsp:include page="/include/weekSchedule.jsp"/>
-  <style>
-    /* 기본 스타일 설정 */
-    body {
-      font-family: sans-serif;
-    }
-    .container {
-      width: 80%;
-      margin: 0 auto;
-    }
-    .section  {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-    .section-BG {
-      width: 80%;
-      border: 4px solid #4F5591;
-      padding: 5px;
-      margin: 0 auto;
-      margin-bottom: 20px;
-    }
-    .section_sc {
-      border: 1px solid #ccc;
-    }
-    .section_sc button {
-    	padding: 5px;
-    }
-    #sc img {
-    	width: 100%;
-    }
-  </style>
+  <jsp:include page="/include/mainContent.jsp"/>
   <script>
   'use strict';
 
@@ -135,10 +105,8 @@
 						</tr>
 					</table>	
 				</div>
-		
+			<h4 class="text-center">누군가 붙여놓은 쪽지들</h4>
 			<!-- 최근 메모 출력 -->
-			<div>누군가 붙여놓은 쪽지들</div>
-			--
 			<c:forEach var="vo" items="${vos}" varStatus="st">
 				<c:if test="${vo.inCpCnt < 5}">
 	      	<div class="section-BG">
@@ -183,7 +151,6 @@
 									</c:if>
 				        </div>
 				        <div class="text-right col">
-					        <!-- <button type="button" data-toggle="modal" data-target="#reportModal" class="w3-button w3-hover-white "><i class="material-icons">more_vert</i></button> -->
 					        <button type="button" onclick="reportModalBtn(${vo.inIdx})" class="w3-button w3-hover-white "><i class="material-icons">more_vert</i></button>
 				        </div>
 		        	</div>

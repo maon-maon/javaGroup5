@@ -79,13 +79,6 @@
 				$("#loginForm").submit();
 			}
 		}
-	
-		
-		// 아이디/비밀번호 찾기
-		function findMidPwdBtn() {
-			
-		}
-		
 	</script>
 </head>
 <body>

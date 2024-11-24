@@ -41,7 +41,7 @@ public class JoinOkCommand implements AboutInterface {
 
 		if(res != 0) {
 			request.setAttribute("message", "회원가입 되었습니다.");
-			request.setAttribute("url", "main");
+			request.setAttribute("url", "Main.me");
 		}
 		else {
 			request.setAttribute("message", "회원가입에 실패하였습니다.");

@@ -15,7 +15,6 @@
 		  display: grid;
 		  grid-template-columns: auto;
 		  grid-gap: 10px; 
-		  padding-top: 10%;
 		}
 		.grid-item {
 		  padding: 10px;

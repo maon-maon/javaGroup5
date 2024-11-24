@@ -18,7 +18,7 @@
 	
 		function alarm() {
 			alert("본인인증에 성공하셨습니다. \n가입하신 아이디는 ㅁㅁ**@na*******입니다");
-			location.href="main"
+			location.href="Main.me"
 		}
 	</script>
 </head>

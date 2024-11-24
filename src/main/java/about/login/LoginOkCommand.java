@@ -33,7 +33,7 @@ public class LoginOkCommand implements AboutInterface {
 		
 		if(!vo.getaPwd().substring(8).equals(aPwd)) {
 			request.setAttribute("message", "입력하신 회원정보가 없습니다. \\n다시 확인하여 주시거나, 아이디/비밀번호를 찾기를 이용해주세요.");
-			request.setAttribute("url", "Main");
+			request.setAttribute("url", "Main.me");
 			return;
 		}
 		
@@ -53,11 +53,10 @@ public class LoginOkCommand implements AboutInterface {
 		}
 		response.addCookie(cookieAmid);
 		response.addCookie(cookieRememberMid);
+		response.addCookie(cookieLogin);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("sAmid", aMid);
-		session.setAttribute("sRememberMid", rememberMid);
-		session.setAttribute("sLogin", "on");
 		
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

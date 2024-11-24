@@ -19,7 +19,7 @@
 				<li><button type="button" onclick="location.href='NoticeUpdate.me'" class="w3-bar-item w3-button">공지사항 관리</button></li>
 				<li><button type="button" onclick="location.href='ComplaintList.me'" class="w3-bar-item w3-button">신고 관리</button></li>
 					<ul>
-				    <li><button type="button" onclick="location.href='ComplaintUser.me'" class="w3-bar-item w3-button">개인 회원 접수</button></li>
+				    <li><button type="button" onclick="location.href='ComplaintUser.me'" class="w3-bar-item w3-button">회원 문의 내역</button></li>
 				    <li><button type="button" onclick="location.href='ComplaintMemo.me'" class="w3-bar-item w3-button">타인의 메모 신고</button></li>
 				  </ul>
 			</ul>

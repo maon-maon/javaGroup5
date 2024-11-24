@@ -23,7 +23,6 @@ public class JoinOkCommand implements AboutInterface {
 			aPhoto = "logo.png";
 		}
 		
-		//비밀번호 암호화
 		String salt = UUID.randomUUID().toString().substring(0,8);
 		
 		SecurityUtil security = new SecurityUtil();
@@ -48,7 +47,5 @@ public class JoinOkCommand implements AboutInterface {
 			request.setAttribute("message", "회원가입에 실패하였습니다.");
 			request.setAttribute("url", "Join.me");
 		}
-		
 	}
-
 }

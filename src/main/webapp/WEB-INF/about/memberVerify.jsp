@@ -5,7 +5,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>memberVerify.jsp</title>
+  <title>본인인증</title>
    <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>

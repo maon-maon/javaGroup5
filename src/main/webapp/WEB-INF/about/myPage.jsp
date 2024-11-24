@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>메모수첩myPage.jsp</title>
+  <title>메모수첩.jsp</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <jsp:include page="/include/bs4.jsp"/>

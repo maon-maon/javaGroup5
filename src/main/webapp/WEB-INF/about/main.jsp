@@ -6,7 +6,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>{About_Me}.Main</title>
+  <title>{About_Me}</title>
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
@@ -17,8 +17,6 @@
 		  max-width: 1200px;
 		  background-color: #E6E6FA;
   	}
-  	
-  	/* 메인화면 */
   	.input-group {
   		display: grid;
    		place-items: center;
@@ -32,9 +30,9 @@
 			width: 100%;
 		}	
 		#main { 
-	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
+	    min-height: calc(100% - 60px);
 		}
-		#footer { /* 하단에 고정 */
+		#footer { 
 			position: absolute;
 	    bottom: 0;
 	    width: 100%;

@@ -8,14 +8,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>complaintList.jsp</title>
+  <title>회원문의신고통합목록</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle_ad.jsp"/>
-  <style>
-		
-  </style>
   <style>
     /* 기본 스타일 설정 */
     body {
@@ -24,10 +21,8 @@
     .container {
       margin: 0 auto;
     }
-    
   </style>
   <script>
-
 	</script>
 </head>
 <body>

@@ -34,8 +34,5 @@ public class BookMarkCommand implements AboutInterface {
 		request.setAttribute("vos", vos);
     request.setAttribute("dd", calendar.get(Calendar.DAY_OF_MONTH));
     request.setAttribute("today", today);
-    
-
 	}
-
 }

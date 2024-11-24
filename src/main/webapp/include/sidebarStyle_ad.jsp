@@ -12,9 +12,9 @@
 	  	left: 20px;
 		}
 		#main { 
-	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
+	    min-height: calc(100% - 60px); 
 		}
-		#footer { /* 하단에 고정 */
+		#footer { 
 			position: fixed ;
 	    bottom: 0;
 	    width: 100%;
@@ -23,7 +23,7 @@
 			margin-left: 15%;
 		}
 		ul {
-		  list-style: none; /* 목록에 번호나 마커를 표시하지 않음 */
+		  list-style: none; 
 		  padding: 0;
 		  margin-left: 5%;
 		}

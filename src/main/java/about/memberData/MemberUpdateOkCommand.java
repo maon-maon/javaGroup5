@@ -65,7 +65,5 @@ public class MemberUpdateOkCommand implements AboutInterface {
 			request.setAttribute("message", "회원정보 수정 실패하였습니다.");
 			request.setAttribute("url", "MemberUpdate.me");
 		}
-		
 	}
-
 }

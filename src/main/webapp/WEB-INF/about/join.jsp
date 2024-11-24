@@ -8,37 +8,10 @@
   <title>회원가입</title>
   <jsp:include page="/include/bs4.jsp"/>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
+  <jsp:include page="/include/sidebarStyle_ad.jsp"/>
 	<style>
-		#sidebar { 
-			background-color: #E6E6FA;
-			width: 20%;
-			display: block;
-		}
-		#main { margin-left: 20%;}
-		
-		#back {
-			position: fixed;
-	  	bottom: 20px;
-	  	left: 20px;
-		}
-		#main { 
-	    min-height: calc(100% - 60px); /* 화면 꽉차게 변경 */
-		}
-		#footer { /* 하단에 고정 */
-		    bottom: 0;
-		    width: 100%;
-		}
-		
-		#sidebar img {
-			margin-left: 15%;
-		}
 		#sideText {
 			padding: 10px;
-		}
-		@media screen and (max-width: 1200px) {
-			#sidebar img {
-		    width: 70%;
-			}
 		}
   </style>
   <style>
@@ -203,11 +176,18 @@
 	      </div>
 	      <div class="mb-1">
 	        <div class="agrtext">
-						1............................................................................................................................
-						2.
-						3.
-						4.
-						5.........................................................................
+						1. 회원제로 운영되는 개인기록 사이트입니다.
+						2. 개인 메모내용은 본인만 볼 수 있습니다. 운영진은 공개된 내용만 확인합니다.
+						2.1 월간분석표를 제공받으려는 회원은 정보 공유에 동의해주세요.
+						2.2 해당 데이터는 당사자만 확인가능하며,  원본데이터와 회원에 대해 운영진은 확인할 수 없습니다.
+						3. 타인의 메모에 공유시 과도한 욕설/혐오표현/타인의 불쾌감을 일으킬 수 있는 표현을 삼가 주시기 바랍니다.
+						4. 범죄와 연관된 내용 작성시 운영진은 해당 회원의 작성 내용을 수사기관에 협조할 수 있습니다.
+						5. 탈퇴시 1달 이내 동일 아이디로 재가입할 수 없습니다.
+						5.1 1달 이후 데이터는 소멸됩니다.
+						5.2 복구를 원하는 회원은 1달 이내 신청하실 수 있습니다.
+						6. 이벤트 참여 회원은 상품수령을 위해 주소/전화번호를 기입해주시기 바랍니다.
+						6.1 해당 정보는 이벤트 완료 후 폐기됩니다.
+						6.2 제3자 제공시 해당 내용을 공유합니다.
 		      </div>
 	        <label for="agr" class="form-label">가입약관에 동의하십니까?</label>
 	        <div  class="text-center">

@@ -20,7 +20,5 @@ public class LogOutCommand implements AboutInterface {
 		
 		request.setAttribute("message", aMid+"님의 메모가 다시 오시길 기다릴거에요");
 		request.setAttribute("url", "Main.me");
-
 	}
-
 }

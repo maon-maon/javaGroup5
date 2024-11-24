@@ -6,6 +6,7 @@
   .container {
     width: 80%;
     margin: 0 auto;
+    padding-top: 5%;
   }
   .section  {
     border: 1px solid #ccc;

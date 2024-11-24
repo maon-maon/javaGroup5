@@ -17,9 +17,6 @@ public class StrangersMemoCommand implements AboutInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			HttpSession session = request.getSession();
-			String sAmid = (String)session.getAttribute("sAmid");
-			
 			Calendar calendar = Calendar.getInstance();
 	    calendar.setFirstDayOfWeek(Calendar.MONDAY);
 	    int currentDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
@@ -34,5 +31,4 @@ public class StrangersMemoCommand implements AboutInterface {
 			request.setAttribute("dd", calendar.get(Calendar.DAY_OF_MONTH));
 	    request.setAttribute("today", today);
 	}
-
 }

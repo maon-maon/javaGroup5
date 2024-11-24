@@ -5,7 +5,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>memberUpdate.jsp</title>
+  <title>회원정보업데이트</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>

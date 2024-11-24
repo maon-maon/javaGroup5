@@ -24,7 +24,6 @@ public class LoginOkCommand implements AboutInterface {
 		String rememberMid = request.getParameter("rememberMid")==null ? "false" : "true";
 		
 		AboutMemberDAO dao = new AboutMemberDAO();
-		
 		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
 		
 		String salt = vo.getaPwd().substring(0,8);
@@ -38,7 +37,6 @@ public class LoginOkCommand implements AboutInterface {
 			return;
 		}
 		
-		// 쿠키 저장 처리
 		Cookie cookieAmid = new Cookie("cAmid", aMid);
 		Cookie cookieRememberMid = new Cookie("cRememberMid", rememberMid);
 		Cookie cookieLogin = new Cookie("cLogin", "on");
@@ -56,21 +54,16 @@ public class LoginOkCommand implements AboutInterface {
 		response.addCookie(cookieAmid);
 		response.addCookie(cookieRememberMid);
 		
-		// 세션 저장 처리
 		HttpSession session = request.getSession();
 		session.setAttribute("sAmid", aMid);
 		session.setAttribute("sRememberMid", rememberMid);
 		session.setAttribute("sLogin", "on");
 		
-		// 접속 날짜
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String today = dateFormat.format(date);
 		String aVisitD = vo.getaVisitD().substring(0,10);
-		//System.out.println("today:  "+today);
-		//System.out.println("aVisitD:  "+aVisitD);
 		
-		//방문카운트 1회 증가
 		if(!today.equals(aVisitD)) {
 			vo.setaVisitCnt(vo.getaVisitCnt()+1);
 			dao.setUserInfoUpdate(vo);

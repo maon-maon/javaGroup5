@@ -178,9 +178,4 @@ public class AboutMemberDAO {
 		}	
 		return res;
 	}
-	
-	
-		
-		
-		
 }

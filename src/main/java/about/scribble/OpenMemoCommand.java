@@ -20,5 +20,4 @@ public class OpenMemoCommand implements AboutInterface {
 		
 		response.getWriter().write(res + "");	
 	}
-
 }

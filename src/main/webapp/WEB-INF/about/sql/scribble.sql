@@ -2,7 +2,7 @@ show tables;
 
 create table scribble (
 	inIdx INT NOT NULL AUTO_INCREMENT,
-	inMid VARCHAR(50) NOT NULL, /*외래키 aMid이메일*/
+	inMid VARCHAR(50) NOT NULL, 
 	inCtg VARCHAR(10) NOT NULL,
 	inTitle VARCHAR(100) NOT NULL,
 	inScore INT NOT NULL,
@@ -20,19 +20,3 @@ desc scribble;
 -- drop table scribble;
 
 select * from scribble;
-
-insert into scribble values(default, 'admin', '', , , , , , , , , ,);
-
-select * from scribble where inMid = 'xxxx';
-
-select * from scribble where inOpen='YES' order by inIdx desc;
-
-select * from scribble where inCpCnt=0;
-select * from scribble where inCpCnt>0;
-select * from scribble where inCpCnt>=1;
-
-update scribble set inCpCnt=inCpCnt+1 where inIdx = 16;
-
-update scribble set inMark='YES' where inIdx = 17;
-select * from scribble where  inMark='YES';
-select * from scribble where inMark='YES'and inMid='2222' order by inIdx desc;

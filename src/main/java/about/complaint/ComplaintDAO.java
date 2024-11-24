@@ -86,32 +86,7 @@ public class ComplaintDAO {
 		return vos;
 	}
 	
-	// 회원 문의글 불러오기
-	/*public List<ComplaintVO> getComplaintUserList() {
-		List<ComplaintVO> vos = new ArrayList<ComplaintVO>();
-		try {
-			sql = "select * from complaint where cpCnt=0";
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				vo = new ComplaintVO();
-				vo.setCpIdx(rs.getInt("cpIdx"));
-				vo.setCpMid(rs.getString("cpMid"));
-				vo.setCpCtg(rs.getString("cpCtg"));
-				vo.setCpContent(rs.getString("cpContent"));
-				vo.setCpDate(rs.getString("cpDate"));
-				vos.add(vo);
-			}
-		} catch (SQLException e) {
-			System.out.println("SLQ 오류 " +e.getMessage());
-		} finally {
-			rsClose();
-		}
-		return vos;
-	}*/
-	
-	// 총 게시물 숫자 1:회원문의2:신고글
+	// 총 게시물 숫자 0:전체1:회원문의2:신고글
 	public int getTotRecCnt(int num) {
 		int totRecCnt = 0;
 		try {
@@ -194,9 +169,4 @@ public class ComplaintDAO {
 		}
 		return res;
 	}
-	
-	
-	
-	
-	
 }

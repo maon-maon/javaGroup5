@@ -10,31 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
-  <style>
-  	.container {
-    width: 80%;
-    margin: 0 auto;
-		}
-		
-		.section {
-		    border: 1px solid #ccc;
-		    padding: 20px;
-		    margin-bottom: 20px;
-		}
-		html, body {
-		    height: 100%;
-		    margin: 0;
-		}
-		#main {
-		    min-height: calc(100% - 60px); /* footer 높이를 고려하여 조절 */
-		}
-		
-		#footer {
-		    position: absolute;
-		    bottom: 0;
-		    width: 100%;
-		}
-	</style>
+  <jsp:include page="/include/mainContent.jsp"/>
 	<script>
 	
 	</script>

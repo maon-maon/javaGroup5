@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>dashboard.jsp</title>
+  <title>관리자보드</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <jsp:include page="/include/bs4.jsp"/>
@@ -36,10 +36,6 @@
 			color: #333;
 			font-weight: bolder;
 		}
-		
-		
-    /* 기본 스타일 설정 */
-    
   </style>
   <script>
 
@@ -96,16 +92,12 @@
 					</tr>
 				</table>	
 			</div>
-			--
-			
-			--
+			<br/>
 			<div>신규 등록 회원 수: </div>
 			<div>문의/신고 접수 건수
 				<div>개인회원접수 : </div>
 				<div>타인의 메모 신고 : </div>
 			</div>
-			--			
-			
 		</div>
 		
 		<!-- footer -->

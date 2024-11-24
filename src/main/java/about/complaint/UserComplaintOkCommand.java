@@ -34,8 +34,5 @@ public class UserComplaintOkCommand implements AboutInterface {
 		}
 		
 		response.getWriter().write(res+"");
-		
-		
 	}
-
 }

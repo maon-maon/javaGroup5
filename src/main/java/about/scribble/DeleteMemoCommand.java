@@ -19,7 +19,5 @@ public class DeleteMemoCommand implements AboutInterface {
 		int res = dao.setDeleteMemo(inIdx);
 		
 		response.getWriter().write(res + "");	
-
 	}
-
 }

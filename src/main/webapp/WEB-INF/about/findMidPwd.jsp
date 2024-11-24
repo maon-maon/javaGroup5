@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>findMidPwd.jsp</title>
+  <title>아이디/비밀번호찾기</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>

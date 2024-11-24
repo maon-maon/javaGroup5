@@ -29,15 +29,10 @@ public class ReportComplaintOkCommand implements AboutInterface {
 		
 		int res = dao.setReportComplaint(vo);
 		
-		
 		ScribbleDAO sDao = new ScribbleDAO();
 		int res2 = sDao.setReportComplaint(cpMemoIdx);
 		if(res==1 && res2==1) res = 1;
 		
-		
 		response.getWriter().write(res+"");
-		
-
 	}
-
 }

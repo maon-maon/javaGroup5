@@ -24,7 +24,5 @@ public class SettingsCommand implements AboutInterface {
 		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
 
 		request.setAttribute("vo", vo);
-		
 	}
-
 }

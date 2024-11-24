@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>bookMark.jsp</title>
+  <title>책갈피</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <jsp:include page="/include/bs4.jsp"/>
@@ -95,7 +95,7 @@
 			<!-- 주간캘린더 -->
 			<div class="text-center">
 				<table>
-					<tr >
+					<tr>
 						<th style="width: 14%; vertical-align: middle; color: #f00;">일</th>
 						<th style="width: 14%; vertical-align: middle">월</th>
 						<th style="width: 14%; vertical-align: middle">화</th>

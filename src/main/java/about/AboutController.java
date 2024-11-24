@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import about.admin.ComplaintListCommand;
 import about.admin.ComplaintMemoCommand;
@@ -49,6 +50,9 @@ public class AboutController extends HttpServlet {
 		String com = request.getRequestURI();
 		com = com.substring(com.lastIndexOf("/"),com.lastIndexOf("."));
 		
+		HttpSession session = request.getSession();
+	  String cLogin = session.getAttribute("cLogin")==null ? "off" : (String)session.getAttribute("cLogin");
+		
 		if(com.equals("/Main")) {
 			command = new LoginCommand();
 			command.execute(request, response);
@@ -72,6 +76,25 @@ public class AboutController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
 		}
+		else if(com.equals("/PwdVerifyCheck")) {
+			command = new PwdVerifyCheckCommand();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/FindMidPwd")) { 
+			viewPage += "findMidPwd.jsp";
+		} 
+		else if(com.equals("/FindMidPwdOk")) {
+			command = new FindMidPwdOkCommand();
+			command.execute(request, response);
+			viewPage = "main";
+		} 
+		
+		if(cLogin != "on") { 
+			request.setAttribute("message", "로그인후 사용하세요");
+			request.setAttribute("url", "/MemberLogin.mem");
+			viewPage = "/include/message.jsp";
+		}
 		else if(com.equals("/Home")) {
 			command = new HomeCommand();
 			command.execute(request, response);
@@ -82,18 +105,13 @@ public class AboutController extends HttpServlet {
 			command.execute(request, response);
 			viewPage += "myPage.jsp";
 		}
-		else if(com.equals("/Settings")) { //메인 컨트롤러에서 작동//about.login
+		else if(com.equals("/Settings")) {
 			command = new SettingsCommand();
 			command.execute(request, response);
 			viewPage += "setting.jsp";
 		}
 		else if(com.equals("/MemberVerify")) {
 			viewPage += "memberVerify.jsp";
-		}
-		else if(com.equals("/PwdVerifyCheck")) {
-			command = new PwdVerifyCheckCommand();
-			command.execute(request, response);
-			return;
 		}
 		else if(com.equals("/MemberUpdate")) {
 			command = new MemberUpdateCommand();
@@ -133,41 +151,6 @@ public class AboutController extends HttpServlet {
 			command.execute(request, response);
 			return;
 		}
-		else if(com.equals("/Dashboard")) {
-			command = new DashboardCommand();
-			command.execute(request, response);
-			viewPage += "dashboard.jsp";
-		}
-		else if(com.equals("/ComplaintList")) {
-			command = new ComplaintListCommand();
-			command.execute(request, response);
-			viewPage += "complaintList.jsp";
-		}
-		else if(com.equals("/ComplaintUser")) {
-			command = new ComplaintUserCommand();
-			command.execute(request, response);
-			viewPage += "complaintUser.jsp";
-		}
-		else if(com.equals("/ComplaintMemo")) {
-			command = new ComplaintMemoCommand();
-			command.execute(request, response);
-			viewPage += "complaintMemo.jsp";
-		}
-		else if(com.equals("/NoticeUpdate")) {
-			command = new NoticeUpdateCommand();
-			command.execute(request, response);
-			viewPage += "noticeUpdate.jsp";
-		}
-		else if(com.equals("/FindMidPwd")) { //아이디/비번찾기
-			//command = new FindMidPwdCommand();
-			//command.execute(request, response);
-			viewPage += "findMidPwd.jsp";
-		} 
-		else if(com.equals("/FindMidPwdOk")) {
-			command = new FindMidPwdOkCommand();
-			command.execute(request, response);
-			viewPage = "main";
-		} 
 		else if(com.equals("/StrangersMemo")) { 
 			command = new StrangersMemoCommand();
 			command.execute(request, response);
@@ -193,17 +176,36 @@ public class AboutController extends HttpServlet {
 			command.execute(request, response);
 			return;
 		}
-//		else if(com.equals("/modifyMemo")) {
-//			command = new modifyMemoCommand();
-//			command.execute(request, response);
-//			viewPage += "modifyMemo.jsp";
-//		}
 		else if(com.equals("/DeleteMemo")) {
 			command = new DeleteMemoCommand();
 			command.execute(request, response);
 			return;
 		}
-		
+		else if(com.equals("/Dashboard")) {
+			command = new DashboardCommand();
+			command.execute(request, response);
+			viewPage += "dashboard.jsp";
+		}
+		else if(com.equals("/ComplaintList")) {
+			command = new ComplaintListCommand();
+			command.execute(request, response);
+			viewPage += "complaintList.jsp";
+		}
+		else if(com.equals("/ComplaintUser")) {
+			command = new ComplaintUserCommand();
+			command.execute(request, response);
+			viewPage += "complaintUser.jsp";
+		}
+		else if(com.equals("/ComplaintMemo")) {
+			command = new ComplaintMemoCommand();
+			command.execute(request, response);
+			viewPage += "complaintMemo.jsp";
+		}
+		else if(com.equals("/NoticeUpdate")) {
+			command = new NoticeUpdateCommand();
+			command.execute(request, response);
+			viewPage += "noticeUpdate.jsp";
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

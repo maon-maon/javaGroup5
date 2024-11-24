@@ -5,6 +5,7 @@
 		
 		#main { 
 			margin-left: 7%;
+			padding-top: 10px;
 		}
 		#back {
 			position: fixed;

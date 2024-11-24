@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>strangersMemo.jsp</title>
+  <title>타인의메모</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <jsp:include page="/include/bs4.jsp"/>
@@ -145,7 +145,7 @@
 		        	<div class="row">
 				        <div class="col">
 									<c:set var="fNameArr" value="${fn:split(vo.inPhoto,'.')}" />
-									<c:set var="extName" value="${fn:toLowerCase(fNameArr[fn:length(fNameArr)-1])}" /> <!-- 확장자 구하기 -->
+									<c:set var="extName" value="${fn:toLowerCase(fNameArr[fn:length(fNameArr)-1])}" />
 									<c:if test="${extName == 'jpg' || extName == 'gif' || extName == 'png'}">
 										<img  src="${ctp}/images/imgData/${vo.inPhoto}" width="150px" />
 									</c:if>
@@ -175,7 +175,7 @@
 	        	<hr/>
 	        	<form name="reportForm">
 	        		<div><input type="radio" name="report" id="report1" value="광고,홍보,영리목적"/> 광고,홍보,영리목적</div>
-		          <div><input type="radio" name="report" id="report2" value="욕설,비방,차별,혐오"/> 설,비방,차별,혐오</div>
+		          <div><input type="radio" name="report" id="report2" value="욕설,비방,차별,혐오"/> 욕설,비방,차별,혐오</div>
 		          <div><input type="radio" name="report" id="report3" value="불법정보"/> 불법정보</div>
 		          <div><input type="radio" name="report" id="report4" value="음란,청소년유해"/> 음란,청소년유해</div>
 		          <div><input type="radio" name="report" id="report5" value="개인정보노출,유포,거래"/> 개인정보노출,유포,거래</div>

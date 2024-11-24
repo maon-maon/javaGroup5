@@ -50,7 +50,6 @@
 						aPhoto.value = "";
 						return false;
 					}
-					//document.getElementById("demo").src = e.target.result;
 					$('#demo').attr('src', e.target.result);
 				};
 				reader.readAsDataURL(input.files[0]);

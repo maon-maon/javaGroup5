@@ -22,14 +22,3 @@ desc aboutMember;
 -- drop table aboutMember;
 
 select * from aboutMember;
-
-alter table aboutMember rename column aPwd_Hint to aPwdHint;
-
-select * from aboutMember where aMid = 'admin';
-select * from aboutMember where aIdx = '1';
-
-insert into aboutMember values(default, ?,?,?,?, default,default,default,default,defaultdefault,default,default)
-insert into aboutMember values(default, 'aaaa','1234','a에이',default,default, default,default,default,default,default,default,default,default)
-
-ALTER TABLE your_table MODIFY COLUMN column_name datatype FIRST;
-ALTER TABLE your_table MODIFY COLUMN column_name datatype AFTER other_column;

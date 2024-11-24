@@ -29,9 +29,6 @@ public class ScribblingCommand implements AboutInterface {
 		
 		request.setAttribute("today", today); 
 		request.setAttribute("yesterday", yesterday); 
-		
 		request.setAttribute("vo", vo);
-
 	}
-
 }

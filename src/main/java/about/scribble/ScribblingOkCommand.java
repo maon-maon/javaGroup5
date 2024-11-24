@@ -23,7 +23,6 @@ public class ScribblingOkCommand implements AboutInterface {
 		MultipartRequest multipartRequest = new MultipartRequest(request, realPath, maxSize, encoding, new DefaultFileRenamePolicy());
 		
 		Enumeration fileNames = multipartRequest.getFileNames();
-		//System.out.println("fileNames: "+fileNames);
 		String originalFileName = "";
 		String filesystemName = "";
 		
@@ -37,16 +36,13 @@ public class ScribblingOkCommand implements AboutInterface {
 			}
 		}
 		if(!originalFileName.isEmpty()) {
-			//System.out.println("originalFileName: "+originalFileName);
 			originalFileName = originalFileName.substring(0, originalFileName.lastIndexOf("/"));
 		}
 		if(!filesystemName.isEmpty()) {
-			//System.out.println("filesystemName: "+filesystemName);
 			filesystemName = filesystemName.substring(0, filesystemName.lastIndexOf("/"));
 		}
 		
 		String inMid = (multipartRequest.getParameter("inMid")==null)? "1" : multipartRequest.getParameter("inMid");
-		//System.out.println("inMid: "+inMid);
 
 		String inCtg = multipartRequest.getParameter("ctg")==null ? "" : multipartRequest.getParameter("ctg");
 		String inTitle = multipartRequest.getParameter("title")==null ? "" : multipartRequest.getParameter("title");
@@ -64,9 +60,8 @@ public class ScribblingOkCommand implements AboutInterface {
 		vo.setInTitle(inTitle);
 		vo.setInScore(inScore);
 		vo.setInPhoto(filesystemName);
-		//System.out.println("vo : " + vo);
+		
 		int res = dao.setScribble(vo);
-		//System.out.println("res: " + res);
 		
 		if(res != 0) {
 			request.setAttribute("message", "쪽지가 수첩에 들어갔습니다.");
@@ -76,9 +71,5 @@ public class ScribblingOkCommand implements AboutInterface {
 			request.setAttribute("message", "쪽지가 바람에 날라갔어요. 다시 작성해주세요");
 			request.setAttribute("url", "Scribbling.me");
 		}
-			
-		
-
 	}
-
 }

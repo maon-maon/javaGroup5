@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>메모수첩myPage.jsp</title>
+  <title>설정</title>
   <link rel="shortcut icon" href="${ctp}/images/favicon/favicon.ico" />
   <jsp:include page="/include/bs4.jsp"/>
   <jsp:include page="/include/sidebarStyle.jsp"/>
@@ -14,22 +14,21 @@
 		.grid-container {
 		  display: grid;
 		  grid-template-columns: auto;
-		  grid-gap: 10px; /* Gap between items */
+		  grid-gap: 10px; 
+		  padding-top: 10%;
 		}
-		
 		.grid-item {
 		  padding: 10px;
-		  border: 1px solid #ddd; /* Optional border for items */
+		  border: 1px solid #ddd; 
 		}
 		
 		.radio-container {
 		  display: flex;
-		  align-items: center; /* Align radio buttons vertically */
-		  margin-bottom: 5px; /* Spacing between radio options */
+		  align-items: center; 
+		  margin-bottom: 5px; 
 		}
-		
 		.form-label {
-		  margin-left: 5px; /* Spacing between label and radio button */
+		  margin-left: 5px;
 		}
 	</style>
 	<script>
@@ -98,11 +97,6 @@
 		
 		<!-- 본문 내용 -->
 		<div class="container">
-			<!-- 회원정보 수정 버튼 -->			
-			<!-- 구글드라이브 백업 -->
-			<!-- 페이지모드 변경버튼 -->
-			<!-- 운영진 문의 -->
-			
 			<div class="grid-container">
 			  <div class="grid-item">
 			    <div>페이지 변경모드</div>
@@ -132,7 +126,6 @@
 			  </c:if>
 			</div>		
 		</div>
-		<%-- ${vo.aMid} --%>
 		
 		<!-- The Modal 시작 -->
 	  <div class="modal" id="complaintModal">

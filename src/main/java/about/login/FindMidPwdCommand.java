@@ -18,15 +18,10 @@ public class FindMidPwdCommand implements AboutInterface {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String aMid = (String)session.getAttribute("sAmid");
-		//System.out.println("aMid   "+aMid);
 		
 		AboutMemberDAO dao = new AboutMemberDAO();
-		
 		AboutMemberVO vo = dao.getMemberIdCheck(aMid);
 		
 		request.setAttribute("vo", vo);
-		
-
 	}
-
 }
